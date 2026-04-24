@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beppu</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 <!-- HEADER -->
 <header class="header">
-    <div class="logo">BEPPU</div>
+    <div class="logo">
+        <img src="assets/img/logo.png">
+    </div>
+
 
     <nav class="menu">
         <a href="#home">Home</a>
@@ -31,7 +35,7 @@
 <section class="hero" id="home">
     <div class="hero-text">
         <h1>Descubra Beppu</h1>
-        <p>Cultura, tradição e bem-estar nas famosas fontes termais do Japão</p>
+        <p>Venha imergir em uma experiência cultural e conhecer sobre Beppu, cultura local e se aprofunde nas fontes termais</p>
 
         <div class="botoes">
             <button class="btn-primary">Explorar agora</button>
@@ -40,7 +44,7 @@
     </div>
 
     <div class="hero-img">
-        <img src="img/beppu.jpeg">
+       <img src="assets/img/chinoike.jpeg">
     </div>
 </section>
 
@@ -48,26 +52,41 @@
 <section class="cards">
 
     <div class="card">
+        <div class="icon">
+            <i data-lucide="waves"></i>
+        </div>
         <h3>Onsens</h3>
         <p>Fontes termais para relaxamento e saúde</p>
     </div>
 
     <div class="card">
+        <div class="icon">
+            <i data-lucide="map-pin"></i>
+        </div>
         <h3>Beppu</h3>
-        <p>Uma das cidades mais famosas do Japão</p>
+        <p>Cidade mais famosa do Japão por seus onsens</p>
     </div>
 
     <div class="card">
+        <div class="icon">
+            <i data-lucide="utensils"></i>
+        </div>
         <h3>Jigoku Mushi</h3>
         <p>Culinária no vapor das águas termais</p>
     </div>
 
     <div class="card">
+        <div class="icon">
+            <i data-lucide="flower"></i>
+        </div>
         <h3>Cultura Japonesa</h3>
         <p>Tradições e estilo de vida</p>
     </div>
 
     <div class="card">
+        <div class="icon">
+            <i data-lucide="compass"></i>
+        </div>
         <h3>Turismo</h3>
         <p>Pontos e experiências únicas</p>
     </div>
@@ -110,5 +129,10 @@
     <p>Descubra a cultura japonesa de forma imersiva</p>
     <button class="btn-primary">Começar agora</button>
 </section>
+
+<script>
+  lucide.createIcons();
+</script>
+
 </body>
 </html>

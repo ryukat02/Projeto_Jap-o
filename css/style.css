@@ -18,10 +18,17 @@ body {
     padding: 20px 60px;
 }
 
+.logo img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+}
+
 .menu a {
     margin: 0 15px;
     text-decoration: none;
-    color: #444;
+    color: rgb(106, 30, 83);
+    font-weight: bolder;
 }
 
 .menu a:hover {
@@ -62,6 +69,7 @@ body {
 .hero-text h1 {
     font-size: 48px;
     margin-bottom: 15px;
+    color: rgb(106, 30, 83);
 }
 
 .hero-img img {
@@ -81,12 +89,49 @@ body {
 
 .card {
     background: white;
-    padding: 25px;
+    padding: 70px 20px 25px;
     width: 200px;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 6px 15px rgba(227, 107, 124, 0.1);
     transition: 0.3s;
+    position: relative;
+    margin-top: 40px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color:rgb(106, 30, 83);
+}
+
+.card p {
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* círculo rosa */
+.icon {
+    width: 70px;
+    height: 70px;
+    background: #f7d6db;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ÍCONE SVG */
+.icon svg {
+    width: 30px;
+    height: 30px;
+    color: #e36b7c; /* COR PADRÃO */
+    display: block;
 }
 
 .card:hover {
