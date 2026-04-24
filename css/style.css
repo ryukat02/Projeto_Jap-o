@@ -142,10 +142,16 @@ body {
 .experiencia {
     padding: 60px;
     text-align: center;
+    line-height: 1.5;
 }
 
 .experiencia h2 {
     margin-bottom: 10px;
+    color:rgb(106, 30, 83);
+}
+
+.experiencia p {
+    color: #333;
 }
 
 .grid-exp {
@@ -153,6 +159,10 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-top: 40px;
+}
+
+.grid-exp p {
+    color:#333;
 }
 
 .exp-box {
