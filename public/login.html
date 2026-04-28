@@ -5,68 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beppu | Login</title>
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/logo_img.png">
-    <link rel="stylesheet" href="css/style.css">
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/public/assets/img/logo_img.png">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 
 <body>
     <!-- HEADER -->
     <header class="header">
         <div class="logo">
-            <a href="/index.html"><img src="assets/img/logo.png" href="/index.html"></a>
+            <a href="/public/index.html"><img src="/public/assets/img/logo.png" href="/public/index.html"></a>
         </div>
 
+        <div class="right">
+            <nav class="menu">
+                <a href="/public/index.html#sobre">Sobre</a>
+                <a href="/public/index.html#cultura">Cultura</a>
+                <a href="/public/index.html#onsens">Onsens</a>
+                <a href="/public/index.html#turismo">Turismo</a>
+                <a href="/public/index.html#quiz">Quiz</a>
+            </nav>
 
-        <nav class="menu">
-            <a href="index.html#home">Home</a>
-            <a href="index.html#cultura">Cultura</a>
-            <a href="index.html#onsens">Onsens</a>
-            <a href="index.html#turismo">Turismo</a>
-            <a href="index.html#quiz">Quiz</a>
-        </nav>
-
-        <div class="acoes">
-            <a class="btn-outline" href="/login.html">Entrar</a>
-            <a class="btn-primary" href="/cadastro.html">Cadastrar</a>
+            <div class="acoes">
+                <a class="btn-outline" href="/public/login.html">Entrar</a>
+                <a class="btn-primary" href="/public/cadastro.html">Cadastrar</a>
+            </div>
         </div>
     </header>
 
     <div class="body-cadastro">
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
+        <div class="login">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card card-login">
+                    <h2>Olá de volta!</h2>
+                    <div class="formulario">
+                        <div class="campo">
+                            <span>E-mail:</span>
+                            <input id="email_input" type="text" placeholder="Login">
+                        </div>
+                        <div class="campo">
+                            <span>Senha:</span>
+                            <input id="senha_input" type="password" placeholder="******">
+                        </div>
+                        <button class="botao" onclick="entrar()">Entrar</button>
+                    </div>
+
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="/public/assets/gif/circle-loading.gif" id="loading-gif">
+                    </div>
+
+                    <div id="div_erros_login"></div>
+                </div>
             </div>
         </div>
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
-                </div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="assets/gif/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login"></div>
-            </div>
-        </div>
-    </div>
     </div>
 
 </body>
 
 </html>
 
+<script>
 
     function entrar() {
         aguardar();
@@ -108,7 +113,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    //sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";

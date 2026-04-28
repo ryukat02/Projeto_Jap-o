@@ -63,12 +63,12 @@ body {
     color: var(--purple);
     font-weight: bolder;
     padding-top: 0;
-   font-size: 14px;
+   font-size: 16px;
 }
 
 .menu a:hover {
     color: #e36b7c;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 /* BOTÕES */
@@ -135,7 +135,7 @@ body {
 .hero-text h1 {
     font-size: 56px;
     margin-bottom: 20px;
-    color: rgb(106, 30, 83);
+    color: var(--purple);
 }
 
 .hero-img img {
@@ -221,7 +221,7 @@ body {
 
 .experiencia h2 {
     margin-bottom: 10px;
-    color:rgb(106, 30, 83);
+    color:var(--purple);
 }
 
 .experiencia p {
@@ -233,7 +233,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-top: 40px;
-    color:rgb(106, 30, 83);
+    color:var(--purple);
 }
 
 .grid-exp p {
@@ -241,7 +241,7 @@ body {
 }
 
 .exp-box {
-    background: white;
+    background: var(--white);
     padding: 20px;
     border-radius: 15px;
 }
@@ -262,7 +262,7 @@ body {
 }
 
 .body-cadastro {
-     background-image: url(/assets/img/cadastro_background.png);
+     background-image: url(/public/assets/img/cadastro_background.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
@@ -361,8 +361,8 @@ body {
 
 .card_erro {
   display: none;
-  background-color: #fff;
-  color: black;
+  background-color: var(--white);
+  color: var(--black);
   width: 230px;
   position: fixed;
   border-radius: 4px;
