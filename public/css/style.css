@@ -144,7 +144,7 @@ body {
     height: 500px;
     object-fit: cover;
     border-radius: 20px;
-    object-position: center 70%;
+    object-position: center 35%;
 }
 
 .img-sobre {
@@ -156,22 +156,23 @@ body {
 
 /* CARDS */
 .cards1 {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1600px;
+    margin: auto;
 }
 
 .cards {
     background: white;
-    padding: 70px 20px 25px;
-    width: 200px;
+    padding: 60px 25px 25px;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 6px 15px rgba(227, 107, 124, 0.1);
     transition: 0.3s;
     position: relative;
-    margin-top: 40px;
+    min-height: 260px;
 }
 
 .cards h3 {
@@ -181,7 +182,8 @@ body {
 
 .cards p {
     line-height: 1.5;
-    font-size: 14px;
+    font-size: 13px;
+    color: #555;
 }
 
 /* círculo rosa */
@@ -211,6 +213,19 @@ body {
 
 .cards:hover {
     transform: translateY(-8px);
+    box-shadow: 0 6px 15px rgba(227, 107, 124, 0.2);
+}
+
+@media (max-width: 1000px) {
+    .cards1 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards1 {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* EXPERIÊNCIA */
