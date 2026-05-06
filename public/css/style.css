@@ -17,14 +17,13 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(180deg, #f8f1f3, #f3e6ea);
     color: #333;
-    padding-top: 90px;
+    padding-top: 100px;
 }
 
 /* HEADER */
 .header {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     display: flex;
     z-index: 1000;
@@ -35,11 +34,10 @@ body {
     padding-top: 0;
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo img {
-    height: 85px;
+    height: 75px;
     width: auto;
     object-fit: contain;
     padding-top: 5px;
@@ -262,21 +260,6 @@ body {
     border-radius: 15px;
 }
 
-/* CTA */
-.cta {
-    text-align: center;
-    padding: 60px;
-    background: #f9d6dc;
-}
-
-.cta h2 {
-    margin-bottom: 10px;
-}
-
-.cta .btn-primary {
-    margin-top: 20px;
-}
-
 .body-cadastro {
      background-image: url(/public/assets/img/cadastro_background.png);
     background-size: cover;
@@ -367,8 +350,6 @@ body {
 #div_erros_login {
   display: none
 }
-
-/* FORMULARIO */
 
 .alerta_erro{
   display: flex;

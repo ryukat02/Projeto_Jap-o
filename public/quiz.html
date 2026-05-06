@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beppu | Quiz</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/quiz.css">
+</head>
+
+
+<body onload="onloadEsconder()">
+    <header class="header">
+        <div class="logo">
+            <img src="./assets/img/logo.png">
+        </div>
+
+        <div class="right">
+            <nav class="menu">
+                <a href="./index.html#sobre">Sobre</a>
+                <a href="./index.html#cultura">Cultura</a>
+                <a href="./index.html#onsens">Onsens</a>
+                <a href="./index.html#turismo">Turismo</a>
+                <a href="./quiz.html">Quiz</a>
+            </nav>
+
+            <div class="acoes">
+                <a class="btn-outline" href="./login.html">Entrar</a>
+                <a class="btn-primary" href="./cadastro.html">Cadastrar</a>
+            </div>
+
+            <div class="lang-switch">
+                <a href="./index.html">PT</a> |
+                <a href="./indexJP.html">JP</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="quiz-wrapper">
+    <div class="quiz-start">
+        <h1>Quiz sobre Beppu</h1>
+        <p>Teste seus conhecimentos e veja o quanto você está apto para visitar a cidade dos onsens!</p>
+
+        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
+            Começar Quiz
+        </button>
+    </div>
+</div>
+        <div id="pontuacao" class="quiz-score">
+            <div class="score-item">
+                <span>Acertos</span>
+                <strong id="spanCertas">0</strong>
+            </div>
+
+            <div class="score-item">
+                <span>Erros</span>
+                <strong id="spanErradas">0</strong>
+            </div>
+
+            <div class="score-item destaque">
+                <span>Pontuação</span>
+                <strong id="spanPontuacaoFinal">0</strong>
+            </div>
+        </div>
+
+        <div id="msgFinal"></div>
+
+        <div id="jogo" class="quiz-container">
+
+            <div class="quiz-topo">
+                <div id="infoQuestao">
+                    Questão <span id="spanNumeroDaQuestaoAtual"></span> de
+                    <span id="qtdQuestoes"></span>
+                </div>
+
+                <div id="perguntaDaQuestaoAtual">
+                    <span id="spanQuestaoExibida"></span>
+                </div>
+
+                <div id="infoAlternativas">
+                    <em>Escolha uma opção:</em>
+                </div>
+            </div>
+
+            <div id="opcoes" class="quiz-opcoes">
+                <div class="opcao-item">
+                    <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
+                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                </div>
+
+                <div class="opcao-item">
+                    <input type="radio" id="segundaOpcao" name="option" value="alternativaB">
+                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                </div>
+
+                <div class="opcao-item">
+                    <input type="radio" id="terceiraOpcao" name="option" value="alternativaC">
+                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                </div>
+
+                <div class="opcao-item">
+                    <input type="radio" id="quartaOpcao" name="option" value="alternativaD">
+                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                </div>
+            </div>
+
+            <div id="botoes" class="quiz-botoes">
+                <button onclick="submeter()" id="btnSubmeter">Submeter</button>
+                <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
+                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const listaDeQuestoes = [
+        {
+            pergunta: "O que são os onsen em Beppu?",
+            alternativaA: "Piscinas termais artificiais",
+            alternativaB: "Fontes termais naturais",
+            alternativaC: "Lagos artificiais",
+            alternativaD: "Águas cristalinas",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Por que Beppu é famosa no Japão?",
+            alternativaA: "Pelo banho de areia",
+            alternativaB: "Por ser perto de Yufuin",
+            alternativaC: "Pela grande quantidade de onsen",
+            alternativaD: "Pelas praias artificiais",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "O que é o 'Jigoku Meguri' em Beppu?",
+            alternativaA: "Festival de comida",
+            alternativaB: "Passeio pelos 'infernos' termais",
+            alternativaC: "Templo histórico",
+            alternativaD: "Tipo de hospedagem",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "O que é 'onsen tamago'?",
+            alternativaA: "Sopa com água de onsen",
+            alternativaB: "Arroz temperado",
+            alternativaC: "Ovo cozido nas águas termais",
+            alternativaD: "Peixe grelhado",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual prato típico de Beppu é cozido com vapor dos onsen?",
+            alternativaA: "Sushi",
+            alternativaB: "Tempura",
+            alternativaC: "Jigoku mushi",
+            alternativaD: "Ramen",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Antes de entrar em um onsen, o que é obrigatório fazer?",
+            alternativaA: "Comer",
+            alternativaB: "Tomar banho e se limpar",
+            alternativaC: "Usar sapatos",
+            alternativaD: "Entrar de roupa",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual dessas atitudes NÃO é permitida em um onsen?",
+            alternativaA: "Silêncio",
+            alternativaB: "Relaxar",
+            alternativaC: "Entrar com roupa de banho",
+            alternativaD: "Tomar banho antes",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Beppu está localizada em qual região do Japão?",
+            alternativaA: "Hokkaido",
+            alternativaB: "Kyushu",
+            alternativaC: "Kanto",
+            alternativaD: "Kansai",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "O vapor dos onsen em Beppu também é usado para:",
+            alternativaA: "Gerar neve",
+            alternativaB: "Cozinhar alimentos",
+            alternativaC: "Fazer roupas",
+            alternativaD: "Iluminar a cidade",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual dessas experiências é comum em Beppu?",
+            alternativaA: "Banho de areia quente",
+            alternativaB: "Escalada em montanha nevada",
+            alternativaC: "Passeio de camelo",
+            alternativaD: "Mergulho em gelo",
+            alternativaCorreta: "alternativaA"
+        }
+
+    ]
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+        document.querySelector('.quiz-wrapper').style.display = "none"
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            checarResposta()
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        numeroDaQuestaoAtual++
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+        limparCoresBackgroundOpcoes()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual]
+        const respostaCorreta = questaoAtual.alternativaCorreta
+
+        const options = document.getElementsByName("option")
+
+        let alternativaCorretaId = null
+        let alternativaSelecionada = null
+
+        // descobre qual é a correta e qual foi escolhida
+        options.forEach((option) => {
+            if (option.value === respostaCorreta) {
+                alternativaCorretaId = option.labels[0].id
+            }
+
+            if (option.checked) {
+                alternativaSelecionada = option
+            }
+        })
+
+        // verifica resposta
+        if (alternativaSelecionada.value === respostaCorreta) {
+            document.getElementById(alternativaCorretaId).classList.add("text-success-with-bg")
+            pontuacaoFinal++
+            certas++
+            document.getElementById("spanCertas").innerHTML = certas
+        } else {
+            const wrongId = alternativaSelecionada.labels[0].id
+
+            document.getElementById(wrongId).classList.add("text-danger-with-bg")
+            document.getElementById(alternativaCorretaId).classList.add("text-success-with-bg")
+
+            erradas++
+            document.getElementById("spanErradas").innerHTML = erradas
+        }
+    }
+
+    function limparCoresBackgroundOpcoes() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = false
+
+    }
+</script>
