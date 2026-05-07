@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beppu | Quiz</title>
+    <title>別府 | クイズ</title>
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/logo_img.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/quiz.css">
@@ -14,21 +14,21 @@
 <body onload="onloadEsconder()">
     <header class="header">
         <div class="logo">
-           <a href="./index.html"><img src="./assets/img/logo.png" href="./index.html"></a>
+            <a href="./indexJP.html"><img src="./assets/img/logo.png" href="./indexJP.html"></a>
         </div>
 
         <div class="right">
             <nav class="menu">
-                <a href="./index.html#sobre">Sobre</a>
-                <a href="./index.html#cultura">Cultura</a>
-                <a href="./index.html#onsens">Onsens</a>
-                <a href="./index.html#turismo">Turismo</a>
-                <a href="./quiz.html">Quiz</a>
+                <a href="./indexJP.html#sobre">概要</a>
+                <a href="./indexJP.html#cultura">文化</a>
+                <a href="./indexJP.html#onsens">温泉</a>
+                <a href="./indexJP.html#turismo">観光</a>
+                <a href="./quiz.html">クイズ</a>
             </nav>
 
             <div class="acoes">
-                <a class="btn-outline" href="./login.html">Entrar</a>
-                <a class="btn-primary" href="./cadastro.html">Cadastrar</a>
+                <a class="btn-outline" href="./loginJP.html">ログイン</a>
+                <a class="btn-primary" href="./cadastroJP.html">登録</a>
             </div>
 
             <div class="lang-switch">
@@ -39,80 +39,80 @@
     </header>
 
     <div class="quiz-wrapper">
-    <div class="quiz-start">
-        <h1>Quiz sobre Beppu</h1>
-        <p>Teste seus conhecimentos e veja o quanto você está apto para visitar a cidade dos onsens!</p>
+        <div class="quiz-start">
+            <h1>別府に関するクイズ</h1>
+            <p>あなたの知識を試して、温泉の街を訪れる準備がどれくらいできているか確かめましょう</p>
 
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
-            Começar Quiz
-        </button>
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
+                クイズを始める
+            </button>
+        </div>
     </div>
-</div>
-        <div id="pontuacao" class="quiz-score">
-            <div class="score-item">
-                <span>Acertos</span>
-                <strong id="spanCertas">0</strong>
+    <div id="pontuacao" class="quiz-score">
+        <div class="score-item">
+            <span>正解数</span>
+            <strong id="spanCertas">0</strong>
+        </div>
+
+        <div class="score-item">
+            <span>間違い</span>
+            <strong id="spanErradas">0</strong>
+        </div>
+
+        <div class="score-item destaque">
+            <span>スコア</span>
+            <strong id="spanPontuacaoFinal">0</strong>
+        </div>
+    </div>
+
+    <div id="msgFinal"></div>
+
+    <div id="jogo" class="quiz-container">
+
+        <div class="quiz-topo">
+            <div id="infoQuestao">
+                第<span id="spanNumeroDaQuestaoAtual"></span>問 /
+                全<span id="qtdQuestoes"></span>問
             </div>
 
-            <div class="score-item">
-                <span>Erros</span>
-                <strong id="spanErradas">0</strong>
+            <div id="perguntaDaQuestaoAtual">
+                <span id="spanQuestaoExibida"></span>
             </div>
 
-            <div class="score-item destaque">
-                <span>Pontuação</span>
-                <strong id="spanPontuacaoFinal">0</strong>
+            <div id="infoAlternativas">
+                <em>選択肢を選んでください：</em>
             </div>
         </div>
 
-        <div id="msgFinal"></div>
-
-        <div id="jogo" class="quiz-container">
-
-            <div class="quiz-topo">
-                <div id="infoQuestao">
-                    Questão <span id="spanNumeroDaQuestaoAtual"></span> de
-                    <span id="qtdQuestoes"></span>
-                </div>
-
-                <div id="perguntaDaQuestaoAtual">
-                    <span id="spanQuestaoExibida"></span>
-                </div>
-
-                <div id="infoAlternativas">
-                    <em>Escolha uma opção:</em>
-                </div>
+        <div id="opcoes" class="quiz-opcoes">
+            <div class="opcao-item">
+                <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
+                <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
             </div>
 
-            <div id="opcoes" class="quiz-opcoes">
-                <div class="opcao-item">
-                    <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </div>
-
-                <div class="opcao-item">
-                    <input type="radio" id="segundaOpcao" name="option" value="alternativaB">
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </div>
-
-                <div class="opcao-item">
-                    <input type="radio" id="terceiraOpcao" name="option" value="alternativaC">
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </div>
-
-                <div class="opcao-item">
-                    <input type="radio" id="quartaOpcao" name="option" value="alternativaD">
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </div>
+            <div class="opcao-item">
+                <input type="radio" id="segundaOpcao" name="option" value="alternativaB">
+                <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
             </div>
 
-            <div id="botoes" class="quiz-botoes">
-                <button onclick="submeter()" id="btnSubmeter">Submeter</button>
-                <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+            <div class="opcao-item">
+                <input type="radio" id="terceiraOpcao" name="option" value="alternativaC">
+                <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
             </div>
 
+            <div class="opcao-item">
+                <input type="radio" id="quartaOpcao" name="option" value="alternativaD">
+                <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+            </div>
         </div>
+
+        <div id="botoes" class="quiz-botoes">
+            <button onclick="submeter()" id="btnSubmeter">送信</button>
+            <button onclick="avancar()" id="btnProx" disabled>次へ</button>
+            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>もう一度挑戦</button>
+        </div>
+
+    </div>
     </div>
 </body>
 
@@ -120,11 +120,11 @@
 <script>
     const listaDeQuestoes = [
         {
-            pergunta: "O que são os onsen em Beppu?",
-            alternativaA: "Piscinas termais artificiais",
-            alternativaB: "Fontes termais naturais",
-            alternativaC: "Lagos artificiais",
-            alternativaD: "Águas cristalinas",
+            pergunta: "別府の温泉とは何ですか？",
+            alternativaA: "人工の温水プール",
+            alternativaB: "自然の温泉",
+            alternativaC: "人工の湖",
+            alternativaD: "透明な水",
             alternativaCorreta: "alternativaB"
         },
 

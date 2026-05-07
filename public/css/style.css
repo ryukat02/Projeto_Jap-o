@@ -129,16 +129,19 @@ body {
     margin-left: 50px;
     margin-right: 50px;
     font-size: 20px;
+    text-align: justify;
 }
 
 .hero-text h1 {
     font-size: 56px;
     margin-bottom: 20px;
     color: var(--purple);
+    text-align: center;
+
 }
 
 .hero-img img {
-    width: 1000px;
+    width: 900px;
     height: 500px;
     object-fit: cover;
     border-radius: 20px;
@@ -180,7 +183,7 @@ body {
 
 .cards p {
     line-height: 1.5;
-    font-size: 13px;
+    font-size: 15px;
     color: #555;
 }
 
