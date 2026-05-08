@@ -24,7 +24,7 @@
 
         <div class="right">
             <nav class="menu">
-                <a href="../quiJPP.html">クイズ</a>
+                <a href="../quizJP.html">クイズ</a>
             </nav>
 
             <div class="acoes">
@@ -121,7 +121,8 @@
         let dados = [];
 
         for (let i = 0; i < listaPontuacoes.length; i++) {
-            labels.push(listaPontuacoes[i].dtHora);
+            let data = listaPontuacoes[i].dtHora.slice(0, 10);
+            labels.push(data);
             dados.push(listaPontuacoes[i].pontuacao);
         }
 

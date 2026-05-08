@@ -22,8 +22,8 @@ function salvar(
             ${erros},
             ${porcentagem},
             ${fkUsuario},
-            ${nivel},
-            ${titulo}
+            '${nivel}',
+            '${titulo}'
         );
 
     `;
