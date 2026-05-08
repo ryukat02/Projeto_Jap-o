@@ -15,8 +15,6 @@ body{
     color: #333;
 }
 
-/* SIDEBAR */
-
 .janela{
     display: flex;
     min-height: 100vh;
@@ -86,8 +84,6 @@ body{
 }
 
 
-/* DASHBOARD */
-
 .dashboard{
     width: 80%;
     max-width: 1200px;
@@ -95,7 +91,9 @@ body{
     padding-top: 120px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .dashboard h1{
@@ -113,17 +111,23 @@ body{
 
 .card-kpi{
     flex: 1;
-    min-width: 200px;
+    width: 240px;
+    min-height: 220px;
     background: white;
     border-radius: 22px;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cards-home{
     display: flex;
     justify-content: center;
+    align-items: stretch;
     gap: 30px;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 .card-home{
@@ -140,16 +144,30 @@ body{
 }
 
 .card-kpi h2{
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 1.4;
     margin-bottom: 15px;
     color: rgb(106, 30, 83);
+    text-align: center;
 }
 
 .card-kpi p{
-    font-size: 40px;
+    font-size: 28px;
     font-weight: bold;
     margin: 0;
     color: #e36b7c;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.titulo-card p{
+    font-size: 28px;
+    text-align: center;
+}
+
+.nivel-card p{
+    font-size: 28px;
+    text-align: center;
 }
 
 .grafico{

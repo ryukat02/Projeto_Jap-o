@@ -61,13 +61,13 @@
                 <p id="kpiMedia">0%</p>
             </div>
 
-            <div class="card-kpi">
-                <h2>Nível</h2>
+            <div class="card-kpi nivel-card" >
+                <h2>レベル</h2>
                 <p id="perfilNivel">-</p>
             </div>
 
-            <div class="card-kpi">
-                <h2>Título</h2>
+            <div class="card-kpi titulo-card">
+                <h2>称号</h2>
                 <p id="perfilTitulo">-</p>
             </div>
 
@@ -103,6 +103,8 @@
                     kpiQuiz.innerHTML = dados.totalQuiz;
                     kpiPontuacao.innerHTML = dados.maiorPontuacao;
                     kpiMedia.innerHTML = Number(dados.media).toFixed() + "%";
+                    perfilNivel.innerHTML = dados.nivel;
+                    perfilTitulo.innerHTML = dados.titulo;
 
                     plotarGrafico(dados.listaPontuacoes);
                     plotarRanking(dados.rankingUsuarios);

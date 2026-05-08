@@ -28,9 +28,6 @@ function salvar(
 
     `;
 
-    console.log("Executando SQL:");
-    console.log(instrucaoSql);
-
     return database.executar(instrucaoSql);
 }
 function buscarDadosDashboard(fkUsuario) {
@@ -62,7 +59,7 @@ function buscarRanking() {
             MAX(quiz.pontuacao) AS maiorPontuacao
         FROM quiz
         JOIN usuario
-            ON quiz.fkUsuario = usuario.id
+            ON quiz.fkUsuario = usuario.idUsuario
         GROUP BY usuario.nome
         ORDER BY maiorPontuacao DESC
         LIMIT 5;

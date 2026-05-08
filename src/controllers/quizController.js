@@ -13,18 +13,18 @@ function salvar(req, res) {
 
     if (porcentagem >= 90) {
 
-        nivel = "Avançado";
-        titulo = "Guardião dos Onsens";
+        nivel = "Avançado - 上級";
+        titulo = "Guardião dos Onsens - 温泉の守護者";
 
     } else if (porcentagem >= 60) {
 
-        nivel = "Intermediário";
-        titulo = "Explorador de Beppu";
+        nivel = "Intermediário - 中級";
+        titulo = "Explorador de Beppu - 別府の探検家";
 
     } else {
 
-        nivel = "Iniciante";
-        titulo = "Visitante";
+        nivel = "Iniciante - 初心者";
+        titulo = "Visitante - 訪問者";
     }
 
     quizModel.salvar(
