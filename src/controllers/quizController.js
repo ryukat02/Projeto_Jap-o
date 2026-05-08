@@ -13,18 +13,18 @@ function salvar(req, res) {
 
     if (porcentagem >= 90) {
 
-        nivel = "Avançado - 上級";
-        titulo = "Guardião dos Onsens - 温泉の守護者";
+        nivel = "Avançado";
+        titulo = "Guardião dos Onsens";
 
     } else if (porcentagem >= 60) {
 
-        nivel = "Intermediário - 中級";
-        titulo = "Explorador de Beppu - 別府の探検家";
+        nivel = "Intermediário";
+        titulo = "Explorador de Beppu";
 
     } else {
 
-        nivel = "Iniciante - 初心者";
-        titulo = "Visitante - 訪問者";
+        nivel = "Iniciante";
+        titulo = "Visitante";
     }
 
     quizModel.salvar(
@@ -37,15 +37,16 @@ function salvar(req, res) {
         titulo
     )
         .then(function (resultado) {
-
-            quizModel.atualizarPerfil(
+            return quizModel.atualizarPerfil(
                 nivel,
                 titulo,
                 fkUsuario
             );
-
-            res.json(resultado);
-
+        })
+        .then(function(){
+            res.json({
+                mensagem: "Quiz salvo e perfil atualizado!"
+            });
         })
         .catch(function (erro) {
 
