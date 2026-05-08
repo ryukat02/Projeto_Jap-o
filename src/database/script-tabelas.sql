@@ -12,8 +12,18 @@ senha VARCHAR(50)
 CREATE TABLE quiz (
 idQuiz INT PRIMARY KEY AUTO_INCREMENT,
 pontuacao INT,
-porcentagemAcertos CHAR(3),
+acertos INT, 
+erros INT,
+porcentagemAcertos DECIMAL (5,2),
 dtHora DATETIME DEFAULT CURRENT_TIMESTAMP,
 fkUsuario INT,
 CONSTRAINT chk_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario)
+); 
+
+CREATE TABLE perfil (
+idPerfil INT PRIMARY KEY AUTO_INCREMENT,
+nivel VARCHAR(30), 
+titulo VARCHAR(50),
+fkUsuario INT,
+CONSTRAINT chk_perfilUser FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario)
 ); 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>別府 | ホーム</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="./indexJP.html">
+                <img src="./assets/img/logo.png">
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="acoes">
+                <nav class="menu">
+                    <a href="../loginJP.html" onclick="limparSessao()">ログアウト</a>
+                </nav>
+            </div>
+            <div class="lang-switch">
+                <a href="./home.html">PT</a> |
+                <a href="./homeJP.html">JP</a>
+            </div>
+        </div>
+
+
+    </header>
+    <div class="body-cadastro">
+        <div class="dashboard">
+
+            <h1>
+                ようこそ、 <span id="b_usuario"></span>さん 👋
+            </h1>
+
+            <div class="kpis">
+
+                <div class="card-home">
+                    <h2>クイズに挑戦する</h2>
+
+                    <br>
+
+                    <a class="btn-primary" href="./quizJP.html">
+                        クイズを始める
+                    </a>
+                </div>
+
+                <div class="card-home">
+                    <h2>ダッシュボードを見る</h2>
+
+                    <br>
+
+                    <a class="btn-primary" href="./dashboard/dashboardJP.html">
+                        ダッシュボードを開く
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function limparSessao() {
+        sessionStorage.clear();
+    }
+
+</script>

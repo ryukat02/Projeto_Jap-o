@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #fff7f8, #f5e9ec);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* SIDEBAR */
+
+.janela{
+    display: flex;
+    min-height: 100vh;
+}
+
+.header-left{
+    width: 260px;
+    background-color: rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-left h1{
+    font-size: 32px;
+    color: #ffb3ff;
+    margin-bottom: 20px;
+}
+
+.hello h3{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.btn-nav,
+.btn-nav-white,
+.btn-logout{
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-nav{
+    background: linear-gradient(90deg, #d946ef, #9333ea);
+}
+
+.btn-nav-white{
+    background-color: rgba(255,255,255,0.08);
+}
+
+.btn-nav-white:hover,
+.btn-logout:hover{
+    background-color: rgba(255,255,255,0.15);
+}
+
+.btn-nav h3,
+.btn-nav-white h3,
+.btn-logout h3{
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn-nav-white a{
+    text-decoration: none;
+}
+
+.btn-logout{
+    margin-top: auto;
+    background-color: rgba(255,255,255,0.08);
+}
+
+
+/* DASHBOARD */
+
+.dashboard{
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dashboard h1{
+    font-size: 42px;
+    margin-bottom: 35px;
+    color: rgb(106, 30, 83);
+}
+
+.kpis{
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.card-kpi{
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+}
+
+.cards-home{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card-home{
+    width: 300px;
+    height: 180px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: rgb(106, 30, 83);
+}
+
+.card-kpi h2{
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: rgb(106, 30, 83);
+}
+
+.card-kpi p{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+    color: #e36b7c;
+}
+
+.grafico{
+    width: 100%;
+    max-width: 900px;
+    margin-top: 40px;
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+canvas{
+    width: 100% !important;
+    max-height: 400px;
+}
+
+@media screen and (max-width: 900px){
+
+    .janela{
+        flex-direction: column;
+    }
+
+    .header-left{
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .graficos{
+        flex-direction: column;
+    }
+
+    .grafico-card{
+        min-width: 100%;
+    }
+}

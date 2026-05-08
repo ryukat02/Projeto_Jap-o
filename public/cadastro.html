@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body onload="listar()">
+<body>
   <!-- HEADER -->
   <header class="header">
     <div class="logo">
@@ -22,7 +22,6 @@
         <a href="./index.html#cultura">Cultura</a>
         <a href="./index.html#onsens">Onsens</a>
         <a href="./index.html#turismo">Turismo</a>
-        <a href="./index.html#quiz">Quiz</a>
       </nav>
 
       <div class="acoes">
@@ -115,11 +114,11 @@
       finalizarAguardar();
       return false;
     } else if (senhaVar.length <= 8 ||
-      !(senhaVar.includes('@') && 
-        senhaVar.includes('!') &&
-        senhaVar.includes('#') &&
-        senhaVar.includes('%') &&
-        senhaVar.includes('&') &&
+      !(senhaVar.includes('@') || 
+        senhaVar.includes('!') ||
+        senhaVar.includes('#') ||
+        senhaVar.includes('%') ||
+        senhaVar.includes('&') ||
         senhaVar.includes('*'))
     ) {
       cardErro.style.display = "block";
@@ -127,11 +126,11 @@
         "A senha deve conter pelo menos 8 caracteres e pelo menos 1 caractere especial!";
       finalizarAguardar();
       return false;
-    } else if (senhaVar == confirmacaoSenhaVar) 
+    } else if (senhaVar != confirmacaoSenhaVar) 
       {
        cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(As senhas devem ser iguais)";
+        "As senhas devem ser iguais";
 
       finalizarAguardar();
       return false;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>別府 | ログイン</title>
+    <title>Beppu | Login</title>
 
     <script src="./js/sessao.js"></script>
 
@@ -16,7 +16,7 @@
     <!-- HEADER -->
     <header class="header">
         <div class="logo">
-            <a href="./index.html"><img src="./assets/img/logo.png" href="./indexJP.html"></a>
+            <a href="./index.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
         </div>
 
         <div class="right">
@@ -25,9 +25,8 @@
                 <a href="./indexJP.html#cultura">文化</a>
                 <a href="./indexJP.html#onsens">温泉</a>
                 <a href="./indexJP.html#turismo">観光</a>
-                <a href="./indexJP.html#quiz">クイズ</a>
             </nav>
-
+            
             <div class="acoes">
                 <a class="btn-outline" href="./loginJP.html">ログイン</a>
                 <a class="btn-primary" href="./cadastroJP.html">登録</a>
@@ -54,7 +53,7 @@
                     <div class="formulario">
                         <div class="campo">
                             <span>メール:</span>
-                            <input id="email_input" type="text" placeholder="Login">
+                            <input id="email_input" type="text" placeholder="メール:">
                         </div>
                         <div class="campo">
                             <span>パスワード:</span>
@@ -87,7 +86,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "すべての項目を正しく入力してください!";
             finalizarAguardar();
             return false;
         }
@@ -118,11 +117,10 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    //sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./homeJP.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

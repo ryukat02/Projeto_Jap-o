@@ -20,6 +20,19 @@
     backdrop-filter: blur(8px);
 }
 
+.lang-switch a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--pink);
+  color: var(--pink);
+}
+
+.lang-switch a:hover {
+  background-color: var(--pink);
+  color: var(--white);
+}
+
 .logo img {
     height: 85px;
     width: auto;
@@ -30,13 +43,14 @@
 body {
     background: linear-gradient(180deg, #f3e6eb, #e9d6de);
     font-family: 'Segoe UI', sans-serif;
+    padding-top: 100px;
 }
 
 .quiz-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 110px)
+    min-height: 100vh;
 }
 
 .quiz-start {
@@ -81,10 +95,11 @@ body {
 .quiz-container {
     width: 90%;
     max-width: 600px;
-    margin: 20px auto;
-    padding: 30px;
     background: #ffffff;
     border-radius: 20px;
+
+    padding: 20px;
+    margin: 0 auto;
 
     display: flex;
     flex-direction: column;

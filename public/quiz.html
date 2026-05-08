@@ -14,21 +14,16 @@
 <body onload="onloadEsconder()">
     <header class="header">
         <div class="logo">
-           <a href="./index.html"><img src="./assets/img/logo.png" href="./index.html"></a>
+            <a href="./index.html"><img src="./assets/img/logo.png" href="./index.html"></a>
         </div>
 
         <div class="right">
             <nav class="menu">
-                <a href="./index.html#sobre">Sobre</a>
-                <a href="./index.html#cultura">Cultura</a>
-                <a href="./index.html#onsens">Onsens</a>
-                <a href="./index.html#turismo">Turismo</a>
-                <a href="./quiz.html">Quiz</a>
+                <a href="./dashboard/dashboard.html">Dashboard</a>
             </nav>
 
             <div class="acoes">
-                <a class="btn-outline" href="./login.html">Entrar</a>
-                <a class="btn-primary" href="./cadastro.html">Cadastrar</a>
+                <a class="btn-outline" href="../home.html">Voltar</a>
             </div>
 
             <div class="lang-switch">
@@ -37,87 +32,93 @@
             </div>
         </div>
     </header>
+    
 
     <div class="quiz-wrapper">
-    <div class="quiz-start">
-        <h1>Quiz sobre Beppu</h1>
-        <p>Teste seus conhecimentos e veja o quanto você está apto para visitar a cidade dos onsens!</p>
+        <div class="quiz-start">
+            <h1>Quiz sobre Beppu</h1>
+            <p>Teste seus conhecimentos e veja o quanto você está apto para visitar a cidade dos onsens!</p>
 
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
-            Começar Quiz
-        </button>
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
+                Começar Quiz
+            </button>
+        </div>
     </div>
-</div>
-        <div id="pontuacao" class="quiz-score">
-            <div class="score-item">
-                <span>Acertos</span>
-                <strong id="spanCertas">0</strong>
+    <div id="pontuacao" class="quiz-score">
+        <div class="score-item">
+            <span>Acertos</span>
+            <strong id="spanCertas">0</strong>
+        </div>
+
+        <div class="score-item">
+            <span>Erros</span>
+            <strong id="spanErradas">0</strong>
+        </div>
+
+        <div class="score-item destaque">
+            <span>Pontuação</span>
+            <strong id="spanPontuacaoFinal">0</strong>
+        </div>
+    </div>
+
+    <div id="msgFinal"></div>
+
+    <div id="jogo" class="quiz-container">
+
+        <div class="quiz-topo">
+            <div id="infoQuestao">
+                Questão <span id="spanNumeroDaQuestaoAtual"></span> de
+                <span id="qtdQuestoes"></span>
             </div>
 
-            <div class="score-item">
-                <span>Erros</span>
-                <strong id="spanErradas">0</strong>
+            <div id="perguntaDaQuestaoAtual">
+                <span id="spanQuestaoExibida"></span>
             </div>
 
-            <div class="score-item destaque">
-                <span>Pontuação</span>
-                <strong id="spanPontuacaoFinal">0</strong>
+            <div id="infoAlternativas">
+                <em>Escolha uma opção:</em>
             </div>
         </div>
 
-        <div id="msgFinal"></div>
-
-        <div id="jogo" class="quiz-container">
-
-            <div class="quiz-topo">
-                <div id="infoQuestao">
-                    Questão <span id="spanNumeroDaQuestaoAtual"></span> de
-                    <span id="qtdQuestoes"></span>
-                </div>
-
-                <div id="perguntaDaQuestaoAtual">
-                    <span id="spanQuestaoExibida"></span>
-                </div>
-
-                <div id="infoAlternativas">
-                    <em>Escolha uma opção:</em>
-                </div>
+        <div id="opcoes" class="quiz-opcoes">
+            <div class="opcao-item">
+                <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
+                <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
             </div>
 
-            <div id="opcoes" class="quiz-opcoes">
-                <div class="opcao-item">
-                    <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </div>
-
-                <div class="opcao-item">
-                    <input type="radio" id="segundaOpcao" name="option" value="alternativaB">
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </div>
-
-                <div class="opcao-item">
-                    <input type="radio" id="terceiraOpcao" name="option" value="alternativaC">
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </div>
-
-                <div class="opcao-item">
-                    <input type="radio" id="quartaOpcao" name="option" value="alternativaD">
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </div>
+            <div class="opcao-item">
+                <input type="radio" id="segundaOpcao" name="option" value="alternativaB">
+                <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
             </div>
 
-            <div id="botoes" class="quiz-botoes">
-                <button onclick="submeter()" id="btnSubmeter">Submeter</button>
-                <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+            <div class="opcao-item">
+                <input type="radio" id="terceiraOpcao" name="option" value="alternativaC">
+                <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
             </div>
 
+            <div class="opcao-item">
+                <input type="radio" id="quartaOpcao" name="option" value="alternativaD">
+                <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+            </div>
         </div>
+
+        <div id="botoes" class="quiz-botoes">
+            <button onclick="submeter()" id="btnSubmeter">Submeter</button>
+            <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
+            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+        </div>
+
+    </div>
     </div>
 </body>
 
 </html>
 <script>
+     if (sessionStorage.ID_USUARIO == undefined) {
+        alert("Você precisa estar logado para acessar o quiz!");
+
+        window.location = "login.html";
+    }
     const listaDeQuestoes = [
         {
             pergunta: "O que são os onsen em Beppu?",
@@ -129,21 +130,39 @@
         },
 
         {
-            pergunta: "Por que Beppu é famosa no Japão?",
-            alternativaA: "Pelo banho de areia",
-            alternativaB: "Por ser perto de Yufuin",
-            alternativaC: "Pela grande quantidade de onsen",
-            alternativaD: "Pelas praias artificiais",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
             pergunta: "O que é o 'Jigoku Meguri' em Beppu?",
             alternativaA: "Festival de comida",
             alternativaB: "Passeio pelos 'infernos' termais",
             alternativaC: "Templo histórico",
             alternativaD: "Tipo de hospedagem",
             alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Dentre os 'Jigoku Meguri' de Beppu, qual deses é designado como 'Sítio da Beleza Cênica Nacional' e apresenta águas de cor azul devido ao sulfato de ferro?",
+            alternativaA: "Tatsumaki Jigoku",
+            alternativaB: "Oniyama Jigoku",
+            alternativaC: "Umi Jigoku",
+            alternativaD: "Chinoike Jigoku",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "O 'Umi Jigoku' atinge aproximadamente quantos graus?",
+            alternativaA: "80°C",
+            alternativaB: "90°C",
+            alternativaC: "100°C",
+            alternativaD: "110°C",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "O 'Chinoike Jigoku' é famoso por sua coloração avermelhada. Históricamente, para qual finalidade a 'lama' rica em óxido de ferro era utilizada?",
+            alternativaA: "Combustível para fornos",
+            alternativaB: "Purificação de água potável",
+            alternativaC: "Fertilizante para arrozais",
+            alternativaD: "Pomadas medicinais para doenças de pele",
+            alternativaCorreta: "alternativaD"
         },
 
         {
@@ -166,20 +185,38 @@
 
         {
             pergunta: "Antes de entrar em um onsen, o que é obrigatório fazer?",
-            alternativaA: "Comer",
+            alternativaA: "Orar no Templo",
             alternativaB: "Tomar banho e se limpar",
-            alternativaC: "Usar sapatos",
+            alternativaC: "Comer o Jigoku mushi",
             alternativaD: "Entrar de roupa",
             alternativaCorreta: "alternativaB"
         },
 
         {
-            pergunta: "Qual dessas atitudes NÃO é permitida em um onsen?",
-            alternativaA: "Silêncio",
-            alternativaB: "Relaxar",
-            alternativaC: "Entrar com roupa de banho",
-            alternativaD: "Tomar banho antes",
+            pergunta: "Qual é a regra correta sobre o uso da pequena toalha de mão dentro da área de banho do onsen?",
+            alternativaA: "Ela deve ser usada para esfregar as costas de outros banhistas",
+            alternativaB: "Ela serve para reservar o seu lugar no onsen",
+            alternativaC: "Ela deve ser mantida na água para esfriar o corpo",
+            alternativaD: "Ela deve ser colocada sobre a cabeça ou na borda da piscina",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "O 'Jigoku Mushi' utiliza o vapor direto das fontes termais para cozinhar. Além da temperatura, qual característica do vapor de Beppu influencia o sabor final dos alimentos?",
+            alternativaA: "A ausência total de umidade do vapor vulcânico",
+            alternativaB: "A presença de gás carbônico purificado",
+            alternativaC: "Os sais minerais e o cloreto de sódio presentes no vapor",
+            alternativaD: "O alto teor de nitrogênio atmosférico",
             alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Além do Jigoku Mushi, Beppu e a província de Oita são famosas pelo 'Toriten'. O que diferencia este prato de um Karaage comum?",
+            alternativaA: "É um tempura de frango servido com molho ponzu",
+            alternativaB: "O frango é cozido no vapor de onsen",
+            alternativaC: "A carne é marinada em água de onsen por 24 horas ",
+            alternativaD: "Vai água de onsen na massa",
+            alternativaCorreta: "alternativaA"
         },
 
         {
@@ -201,11 +238,11 @@
         },
 
         {
-            pergunta: "Qual dessas experiências é comum em Beppu?",
-            alternativaA: "Banho de areia quente",
-            alternativaB: "Escalada em montanha nevada",
-            alternativaC: "Passeio de camelo",
-            alternativaD: "Mergulho em gelo",
+            pergunta: "O 'Takegawara Onsen' é um dos mais icônicos de Beppu. Em que ano sua estrutura atual, famosa pelo telhado estilo Karahafu, foi construída?",
+            alternativaA: "1938",
+            alternativaB: "1995",
+            alternativaC: "1879",
+            alternativaD: "1830",
             alternativaCorreta: "alternativaA"
         }
 
@@ -385,6 +422,42 @@
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
         document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        let porcentagem = ((pontuacaoFinal / quantidadeDeQuestoes) * 100).toFixed(2);
+
+        fetch("/quiz/salvar", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                pontuacaoServer: pontuacaoFinal,
+                acertosServer: certas,
+                errosServer: erradas,
+                porcentagemServer: porcentagem,
+                fkUsuarioServer: Number(sessionStorage.ID_USUARIO)
+
+            })
+
+        })
+            .then(function (resposta) {
+
+                console.log("Resultado salvo!");
+
+                setTimeout(() => {
+                    window.location = "./dashboard/dashboardJP.html";
+                }, 2000);
+
+            })
+            .catch(function (erro) {
+
+                console.log("Erro ao salvar:", erro);
+
+            });
 
         document.getElementById('jogo').classList.add("text-new-gray")
 

@@ -14,21 +14,16 @@
 <body onload="onloadEsconder()">
     <header class="header">
         <div class="logo">
-            <a href="./indexJP.html"><img src="./assets/img/logo.png" href="./indexJP.html"></a>
+            <a href="./index.html"><img src="./assets/img/logo.png" href="./index.html"></a>
         </div>
 
         <div class="right">
             <nav class="menu">
-                <a href="./indexJP.html#sobre">概要</a>
-                <a href="./indexJP.html#cultura">文化</a>
-                <a href="./indexJP.html#onsens">温泉</a>
-                <a href="./indexJP.html#turismo">観光</a>
-                <a href="./quiz.html">クイズ</a>
+                <a href="./dashboard/dashboardJP.html">ダッシュボード</a>
             </nav>
 
             <div class="acoes">
-                <a class="btn-outline" href="./loginJP.html">ログイン</a>
-                <a class="btn-primary" href="./cadastroJP.html">登録</a>
+                <a class="btn-outline" href="../home.html">戻る</a>
             </div>
 
             <div class="lang-switch">
@@ -38,10 +33,11 @@
         </div>
     </header>
 
+
     <div class="quiz-wrapper">
         <div class="quiz-start">
-            <h1>別府に関するクイズ</h1>
-            <p>あなたの知識を試して、温泉の街を訪れる準備がどれくらいできているか確かめましょう</p>
+            <h1>別府市のクイズ</h1>
+            <p>あなたの知識を試して、温泉の街・別府をどれだけ知っているか確かめましょう！</p>
 
             <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
                 クイズを始める
@@ -50,7 +46,7 @@
     </div>
     <div id="pontuacao" class="quiz-score">
         <div class="score-item">
-            <span>正解数</span>
+            <span>Acertos</span>
             <strong id="spanCertas">0</strong>
         </div>
 
@@ -71,8 +67,8 @@
 
         <div class="quiz-topo">
             <div id="infoQuestao">
-                第<span id="spanNumeroDaQuestaoAtual"></span>問 /
-                全<span id="qtdQuestoes"></span>問
+                第 <span id="spanNumeroDaQuestaoAtual"></span>問 /
+                <span id="qtdQuestoes"></span>
             </div>
 
             <div id="perguntaDaQuestaoAtual">
@@ -80,7 +76,7 @@
             </div>
 
             <div id="infoAlternativas">
-                <em>選択肢を選んでください：</em>
+                <em>選択してください:</em>
             </div>
         </div>
 
@@ -107,9 +103,9 @@
         </div>
 
         <div id="botoes" class="quiz-botoes">
-            <button onclick="submeter()" id="btnSubmeter">送信</button>
+            <button onclick="submeter()" id="btnSubmeter">回答する</button>
             <button onclick="avancar()" id="btnProx" disabled>次へ</button>
-            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>もう一度挑戦</button>
+            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>もう一度試す</button>
         </div>
 
     </div>
@@ -118,94 +114,126 @@
 
 </html>
 <script>
+    if (sessionStorage.ID_USUARIO == undefined) {
+        alert("クイズにアクセスするにはログインが必要です！");
+
+        window.location = "loginJP.html";
+    }
     const listaDeQuestoes = [
         {
-            pergunta: "別府の温泉とは何ですか？",
+            pergunta: "別府の「温泉」とは何か？",
             alternativaA: "人工の温水プール",
-            alternativaB: "自然の温泉",
+            alternativaB: "天然の熱水源",
             alternativaC: "人工の湖",
-            alternativaD: "透明な水",
+            alternativaD: "澄んだ水",
             alternativaCorreta: "alternativaB"
         },
 
         {
-            pergunta: "Por que Beppu é famosa no Japão?",
-            alternativaA: "Pelo banho de areia",
-            alternativaB: "Por ser perto de Yufuin",
-            alternativaC: "Pela grande quantidade de onsen",
-            alternativaD: "Pelas praias artificiais",
+            pergunta: "別府の「地獄めぐり」とは何ですか？",
+            alternativaA: "フードフェスティバル",
+            alternativaB: "温泉の「地獄」を巡るツアー",
+            alternativaC: "歴史的な寺院",
+            alternativaD: "宿泊施設の種類",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "別府の「地獄めぐり」の中で、国の名勝に指定されており、硫酸鉄によって青い色をしているのはどれですか？",
+            alternativaA: "竜巻地獄",
+            alternativaB: "鬼山地獄",
+            alternativaC: "海地獄",
+            alternativaD: "血の池地獄",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "O que é o 'Jigoku Meguri' em Beppu?",
-            alternativaA: "Festival de comida",
-            alternativaB: "Passeio pelos 'infernos' termais",
-            alternativaC: "Templo histórico",
-            alternativaD: "Tipo de hospedagem",
-            alternativaCorreta: "alternativaB"
-        },
-
-        {
-            pergunta: "O que é 'onsen tamago'?",
-            alternativaA: "Sopa com água de onsen",
-            alternativaB: "Arroz temperado",
-            alternativaC: "Ovo cozido nas águas termais",
-            alternativaD: "Peixe grelhado",
+            pergunta: "「海地獄」の温度は約何度ですか？",
+            alternativaA: "80°C",
+            alternativaB: "90°C",
+            alternativaC: "100°C",
+            alternativaD: "110°C",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Qual prato típico de Beppu é cozido com vapor dos onsen?",
-            alternativaA: "Sushi",
-            alternativaB: "Tempura",
-            alternativaC: "Jigoku mushi",
-            alternativaD: "Ramen",
+            pergunta: "「血の池地獄」はその赤い色で有名です。歴史的に、酸化鉄を豊富に含む「泥」は何のために使われていましたか？",
+            alternativaA: "炉の燃料",
+            alternativaB: "飲料水の浄化",
+            alternativaC: "水田の肥料",
+            alternativaD: "皮膚病の薬（軟膏）",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "「温泉卵」とは何ですか？",
+            alternativaA: "温泉水を使ったスープ",
+            alternativaB: "味付けご飯",
+            alternativaC: "温泉の熱でゆでた卵",
+            alternativaD: "焼き魚",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Antes de entrar em um onsen, o que é obrigatório fazer?",
-            alternativaA: "Comer",
-            alternativaB: "Tomar banho e se limpar",
-            alternativaC: "Usar sapatos",
-            alternativaD: "Entrar de roupa",
-            alternativaCorreta: "alternativaB"
-        },
-
-        {
-            pergunta: "Qual dessas atitudes NÃO é permitida em um onsen?",
-            alternativaA: "Silêncio",
-            alternativaB: "Relaxar",
-            alternativaC: "Entrar com roupa de banho",
-            alternativaD: "Tomar banho antes",
+            pergunta: "温泉の湯気（蒸気）で調理される別府の名物料理は何ですか？",
+            alternativaA: "寿司",
+            alternativaB: "とり天",
+            alternativaC: "地獄蒸し",
+            alternativaD: "ラーメン温泉",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Beppu está localizada em qual região do Japão?",
-            alternativaA: "Hokkaido",
-            alternativaB: "Kyushu",
-            alternativaC: "Kanto",
-            alternativaD: "Kansai",
+            pergunta: "温泉に入る前に、必ずしなければならないことは何ですか？",
+            alternativaA: "寺院でお祈りする",
+            alternativaB: "体を洗って清潔にする",
+            alternativaC: "地獄蒸しを食べる",
+            alternativaD: "服を着たまま入る",
             alternativaCorreta: "alternativaB"
         },
 
         {
-            pergunta: "O vapor dos onsen em Beppu também é usado para:",
-            alternativaA: "Gerar neve",
-            alternativaB: "Cozinhar alimentos",
-            alternativaC: "Fazer roupas",
-            alternativaD: "Iluminar a cidade",
+            pergunta: "温泉の洗い場での小さな手ぬぐい（タオル）の使い方として正しいものはどれですか？",
+            alternativaA: "他の人の背中を流すために使う",
+            alternativaB: "温泉内での場所取りに使う",
+            alternativaC: "体を冷やすために、お湯の中に浸し続ける",
+            alternativaD: "頭の上に置くか、浴槽の脇に置く",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "「地獄蒸し」は温泉の蒸気で調理します。温度以外に、別府の蒸気のどのような特徴が料理の味に影響を与えますか？",
+            alternativaA: "火山蒸気の湿気が全くないこと",
+            alternativaB: "精製された二酸化炭素が含まれていること",
+            alternativaC: "蒸気に含まれる塩分やミネラル",
+            alternativaD: "大気中の窒素含有量が高いこと",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "地獄蒸しの他に、別府や大分県で有名な「とり天」は、普通の唐揚げと何が違いますか？",
+            alternativaA: "鶏肉の天ぷらで、ポン酢と一緒に食べる",
+            alternativaB: "鶏肉を温泉の蒸気で蒸している",
+            alternativaC: "肉を24時間温泉水に漬け込んでいる",
+            alternativaD: "温泉水が入っている",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "別府は日本のどの地方に位置していますか？",
+            alternativaA: "北海道",
+            alternativaB: "九州",
+            alternativaC: "関東",
+            alternativaD: "関西",
             alternativaCorreta: "alternativaB"
         },
 
         {
-            pergunta: "Qual dessas experiências é comum em Beppu?",
-            alternativaA: "Banho de areia quente",
-            alternativaB: "Escalada em montanha nevada",
-            alternativaC: "Passeio de camelo",
-            alternativaD: "Mergulho em gelo",
+            pergunta: "「竹瓦温泉」は別府を象徴する温泉の一つです。唐破風（からはふ）造りの屋根で有名な現在の建物は何年に建てられましたか？",
+            alternativaA: "1938年",
+            alternativaB: "1995年",
+            alternativaC: "1879年",
+            alternativaD: "1830年",
             alternativaCorreta: "alternativaA"
         }
 
@@ -267,7 +295,7 @@
         }
 
         if (!hasChecked) {
-            alert("Não há alternativas escolhidas. Escolha uma opção.")
+            alert("選択肢が選ばれていません。1つ選んでください。")
         } else {
             btnSubmeter.disabled = true
             btnProx.disabled = false
@@ -385,6 +413,42 @@
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
         document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        let porcentagem = ((pontuacaoFinal / quantidadeDeQuestoes) * 100).toFixed();
+
+        fetch("/quiz/salvar", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                pontuacaoServer: pontuacaoFinal,
+                acertosServer: certas,
+                errosServer: erradas,
+                porcentagemServer: porcentagem,
+                fkUsuarioServer: Number(sessionStorage.ID_USUARIO)
+
+            })
+
+        })
+            .then(function (resposta) {
+
+                console.log("Resultado salvo!");
+
+                setTimeout(() => {
+                    window.location = "./dashboard/dashboardJP.html";
+                }, 2000);
+
+            })
+            .catch(function (erro) {
+
+                console.log("Erro ao salvar:", erro);
+
+            });
 
         document.getElementById('jogo').classList.add("text-new-gray")
 
