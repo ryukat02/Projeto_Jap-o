@@ -115,7 +115,7 @@
       finalizarAguardar();
       return false;
     } else if (senhaVar.length <= 8 ||
-      !(senhaVar.includes('@') || 
+      !(senhaVar.includes('@') ||
         senhaVar.includes('!') ||
         senhaVar.includes('#') ||
         senhaVar.includes('%') ||
@@ -127,9 +127,8 @@
         "A senha deve conter pelo menos 8 caracteres e pelo menos 1 caractere especial!";
       finalizarAguardar();
       return false;
-    } else if (senhaVar != confirmacaoSenhaVar) 
-      {
-       cardErro.style.display = "block";
+    } else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "As senhas devem ser iguais";
 
@@ -175,6 +174,9 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML =
+          "Houve um erro ao tentar realizar o cadastro";
         finalizarAguardar();
       });
 
