@@ -33,7 +33,7 @@ function salvar(req, res) {
         erros,
         porcentagem,
         fkUsuario,
-        nivel, 
+        nivel,
         titulo
     )
         .then(function (resultado) {
@@ -42,7 +42,7 @@ function salvar(req, res) {
                 titulo,
                 fkUsuario
             );
-        })
+        })   
         .then(function(){
             res.json({
                 mensagem: "Quiz salvo e perfil atualizado!"
@@ -89,8 +89,6 @@ function dashboard(req, res) {
         });
 
 }
-
-
 module.exports = {
     salvar,
     dashboard

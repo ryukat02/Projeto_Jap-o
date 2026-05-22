@@ -30,6 +30,8 @@ function salvar(
 
     return database.executar(instrucaoSql);
 }
+
+
 function buscarDadosDashboard(fkUsuario) {
 
     var instrucaoSql = `
@@ -98,10 +100,11 @@ function atualizarPerfil(nivel, titulo, fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
+
 module.exports = {
     salvar,
+    atualizarPerfil,
     buscarDadosDashboard,
     listarPontuacoes,
-    buscarRanking,
-    atualizarPerfil
+    buscarRanking
 };
