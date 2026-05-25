@@ -14,26 +14,29 @@
 
 <body onload="onloadEsconder()">
     <header class="header">
-        <div class="logo">
-            <a href="./index.html"><img src="./assets/img/logo.png" href="./index.html"></a>
-        </div>
-
-        <div class="right">
-            <nav class="menu">
-                <a href="./dashboard/dashboard.html">Dashboard</a>
-            </nav>
-
-            <div class="acoes">
-                <a class="btn-outline" href="../home.html">Voltar</a>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="./index.html"><img src="./assets/img/logo.png" href="./index.html"></a>
             </div>
 
-            <div class="lang-switch">
-                <a href="./quiz.html">PT</a> |
-                <a href="./quizJP.html">JP</a>
+            <div class="header-right">
+                <nav class="header-menu">
+                    <a href="./dashboard/dashboard.html">Dashboard</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a class="btn-outline" href="../home.html">Voltar</a>
+
+
+                    <div class="lang-switch">
+                        <a href="./quiz.html">PT</a> |
+                        <a href="./quizJP.html">JP</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
-    
+
 
     <div class="quiz-wrapper">
         <div class="quiz-start">
@@ -110,12 +113,11 @@
         </div>
 
     </div>
-    </div>
 </body>
 
 </html>
 <script>
-     if (sessionStorage.ID_USUARIO == undefined) {
+    if (sessionStorage.ID_USUARIO == undefined) {
         alert("Você precisa estar logado para acessar o quiz!");
 
         window.location = "login.html";
@@ -129,7 +131,7 @@
             alternativaD: "Águas cristalinas",
             alternativaCorreta: "alternativaB"
         },
-        /*
+
         {
             pergunta: "O que é o 'Jigoku Meguri' em Beppu?",
             alternativaA: "Festival de comida",
@@ -140,9 +142,9 @@
         },
 
         {
-            pergunta: "Dentre os 'Jigoku Meguri' de Beppu, qual deses é designado como 'Sítio da Beleza Cênica Nacional' e apresenta águas de cor azul devido ao sulfato de ferro?",
+            pergunta: "Dentre os 'Jigoku Meguri' de Beppu, qual deses é designado como 'Sítio da Beleza Cênica Nacional' e apresenta águas de cor azul?",
             alternativaA: "Tatsumaki Jigoku",
-            alternativaB: "Oniyama Jigoku",
+            alternativaB: "Oniishibozu Jigoku",
             alternativaC: "Umi Jigoku",
             alternativaD: "Chinoike Jigoku",
             alternativaCorreta: "alternativaC"
@@ -167,39 +169,12 @@
         },
 
         {
-            pergunta: "O que é 'onsen tamago'?",
-            alternativaA: "Sopa com água de onsen",
-            alternativaB: "Arroz temperado",
-            alternativaC: "Ovo cozido nas águas termais",
-            alternativaD: "Peixe grelhado",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
             pergunta: "Qual prato típico de Beppu é cozido com vapor dos onsen?",
-            alternativaA: "Sushi",
-            alternativaB: "Tempura",
-            alternativaC: "Jigoku mushi",
-            alternativaD: "Ramen",
+            alternativaA: "Jigoku Sushi",
+            alternativaB: "Jigoku Tempura",
+            alternativaC: "Jigoku Mushi",
+            alternativaD: "Jigoku Ramen",
             alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "Antes de entrar em um onsen, o que é obrigatório fazer?",
-            alternativaA: "Orar no Templo",
-            alternativaB: "Tomar banho e se limpar",
-            alternativaC: "Comer o Jigoku mushi",
-            alternativaD: "Entrar de roupa",
-            alternativaCorreta: "alternativaB"
-        },
-
-        {
-            pergunta: "Qual é a regra correta sobre o uso da pequena toalha de mão dentro da área de banho do onsen?",
-            alternativaA: "Ela deve ser usada para esfregar as costas de outros banhistas",
-            alternativaB: "Ela serve para reservar o seu lugar no onsen",
-            alternativaC: "Ela deve ser mantida na água para esfriar o corpo",
-            alternativaD: "Ela deve ser colocada sobre a cabeça ou na borda da piscina",
-            alternativaCorreta: "alternativaD"
         },
 
         {
@@ -212,15 +187,6 @@
         },
 
         {
-            pergunta: "Além do Jigoku Mushi, Beppu e a província de Oita são famosas pelo 'Toriten'. O que diferencia este prato de um Karaage comum?",
-            alternativaA: "É um tempura de frango servido com molho ponzu",
-            alternativaB: "O frango é cozido no vapor de onsen",
-            alternativaC: "A carne é marinada em água de onsen por 24 horas ",
-            alternativaD: "Vai água de onsen na massa",
-            alternativaCorreta: "alternativaA"
-        },
-
-        {
             pergunta: "Beppu está localizada em qual região do Japão?",
             alternativaA: "Hokkaido",
             alternativaB: "Kyushu",
@@ -230,23 +196,22 @@
         },
 
         {
-            pergunta: "O vapor dos onsen em Beppu também é usado para:",
-            alternativaA: "Gerar neve",
-            alternativaB: "Cozinhar alimentos",
-            alternativaC: "Fazer roupas",
-            alternativaD: "Iluminar a cidade",
-            alternativaCorreta: "alternativaB"
+            pergunta: "O que torna o Tatsumaki Jigoku uma das atrações mais conhecidas de Beppu?",
+            alternativaA: "Seu gêiser natural que lança vapor e água quente",
+            alternativaB: "Suas águas azul-cobalto",
+            alternativaC: "Sua lama medicinal vermelha",
+            alternativaD: "Seu lago congelado durante o inverno",
+            alternativaCorreta: "alternativaA"
         },
-        */
 
         {
-            pergunta: "O 'Takegawara Onsen' é um dos mais icônicos de Beppu. Em que ano sua estrutura atual, famosa pelo telhado estilo Karahafu, foi construída?",
-            alternativaA: "1938",
-            alternativaB: "1995",
-            alternativaC: "1879",
-            alternativaD: "1830",
-            alternativaCorreta: "alternativaA"
-        }
+            pergunta: "Qual é a principal característica do Oniishibozu Jigoku em Beppu?",
+            alternativaA: "Águas azul-cobalto",
+            alternativaB: "Lama quente cinzenta que borbulha",
+            alternativaC: "Um gêiser natural",
+            alternativaD: "Águas avermelhadas ricas em ferro",
+            alternativaCorreta: "alternativaB"
+        },
 
     ]
 

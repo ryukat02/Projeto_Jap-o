@@ -11,34 +11,35 @@
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">
-      <a href="./indexJP.html"><img src="./assets/img/logo.png" href="./index.html"></a>
-    </div>
+ <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="./indexJP.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
+            </div>
+            <div class="header-right">
+                <nav class="header-menu">
+                    <a href="./indexJP.html#sobre">概要</a>
+                    <a href="./indexJP.html#onsens">温泉</a>
+                    <a href="./indexJP.html#jigokumushi">地獄むし</a>
+                    <a href="./indexJP.html#jigokumeguri">地獄めぐり</a>
+                </nav>
+                <div class="header-actions">
+                    <a class="btn-outline" href="./loginJP.html">ログイン</a>
+                    <a class="btn-primary" href="./cadastroJP.html">登録</a>
 
-    <div class="right">
-      <nav class="menu">
-        <a href="./indexJP.html#sobre">概要</a>
-        <a href="./indexJP.html#cultura">文化</a>
-        <a href="./indexJP.html#onsens">温泉</a>
-        <a href="./indexJP.html#turismo">観光</a>
-      </nav>
 
-      <div class="acoes">
-        <a class="btn-outline" href="./loginJP.html">ログイン</a>
-        <a class="btn-primary" href="./cadastroJP.html">登録</a>
-      </div>
-
-      <div class="lang-switch">
-        <a href="./cadastro.html">PT</a> |
-        <a href="./cadastroJP.html">JP</a>
-      </div>
-    </div>
-  </header>
+                    <div class="lang-switch">
+                        <a href="./cadastro.html">PT</a> |
+                        <a href="./cadastroJP.html">JP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
 
   <div class="body-cadastro">
-    <div class="login">
+    <div class="cadastro">
       <div class="alerta_erro">
         <div class="card_erro" id="cardErro">
           <span id="mensagem_erro"></span>
@@ -54,7 +55,7 @@
             </div>
             <div class="campo">
               <span>メール:</span>
-              <input id="email_input" type="text" placeholder="seuemail@email.com" />
+              <input id="email_input" type="text" placeholder="あなたのメール＠メール.com" />
             </div>
             <div class="campo">
               <span>パスワード:</span>

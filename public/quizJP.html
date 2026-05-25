@@ -8,7 +8,7 @@
 
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/logo_img.png">
     <link rel="stylesheet" href="./css/header.css">
-    
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/quiz.css">
 </head>
@@ -16,22 +16,25 @@
 
 <body onload="onloadEsconder()">
     <header class="header">
-        <div class="logo">
-            <a href="./index.html"><img src="./assets/img/logo.png" href="./index.html"></a>
-        </div>
-
-        <div class="right">
-            <nav class="menu">
-                <a href="./dashboard/dashboardJP.html">ダッシュボード</a>
-            </nav>
-
-            <div class="acoes">
-                <a class="btn-outline" href="../homeJP.html">戻る</a>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="./indexJP.html"><img src="./assets/img/logo.png" href="./index.html"></a>
             </div>
 
-            <div class="lang-switch">
-                <a href="./quiz.html">PT</a> |
-                <a href="./quizJP.html">JP</a>
+            <div class="header-right">
+                <nav class="header-menu">
+                    <a href="./dashboard/dashboardJP.html">ダッシュボード</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a class="btn-outline" href="../homeJP.html">戻る</a>
+
+
+                    <div class="lang-switch">
+                        <a href="./quiz.html">PT</a> |
+                        <a href="./quizJP.html">JP</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -70,7 +73,7 @@
 
         <div class="quiz-topo">
             <div id="infoQuestao">
-                第<span id="spanNumeroDaQuestaoAtual"></span>問 / 
+                第<span id="spanNumeroDaQuestaoAtual"></span>問 /
                 第<span id="qtdQuestoes"></span>問
             </div>
 
@@ -124,7 +127,7 @@
     }
     const listaDeQuestoes = [
         {
-            pergunta: "別府の「温泉」とは何か？",
+            pergunta: "別府の「温泉」とは何ですか？",
             alternativaA: "人工の温水プール",
             alternativaB: "天然の熱水源",
             alternativaC: "人工の湖",
@@ -144,7 +147,7 @@
         {
             pergunta: "別府の「地獄めぐり」の中で、国の名勝に指定されており、硫酸鉄によって青い色をしているのはどれですか？",
             alternativaA: "竜巻地獄",
-            alternativaB: "鬼山地獄",
+            alternativaB: "鬼石坊主地獄",
             alternativaC: "海地獄",
             alternativaD: "血の池地獄",
             alternativaCorreta: "alternativaC"
@@ -169,39 +172,12 @@
         },
 
         {
-            pergunta: "「温泉卵」とは何ですか？",
-            alternativaA: "温泉水を使ったスープ",
-            alternativaB: "味付けご飯",
-            alternativaC: "温泉の熱でゆでた卵",
-            alternativaD: "焼き魚",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "温泉の湯気（蒸気）で調理される別府の名物料理は何ですか？",
-            alternativaA: "寿司",
-            alternativaB: "とり天",
+            pergunta: "別府の名物料理で、温泉の蒸気を使って調理されるものは何ですか？",
+            alternativaA: "地獄寿司",
+            alternativaB: "地獄天ぷら",
             alternativaC: "地獄蒸し",
-            alternativaD: "ラーメン温泉",
+            alternativaD: "地獄ラーメン",
             alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "温泉に入る前に、必ずしなければならないことは何ですか？",
-            alternativaA: "寺院でお祈りする",
-            alternativaB: "体を洗って清潔にする",
-            alternativaC: "地獄蒸しを食べる",
-            alternativaD: "服を着たまま入る",
-            alternativaCorreta: "alternativaB"
-        },
-
-        {
-            pergunta: "温泉の洗い場での小さな手ぬぐい（タオル）の使い方として正しいものはどれですか？",
-            alternativaA: "他の人の背中を流すために使う",
-            alternativaB: "温泉内での場所取りに使う",
-            alternativaC: "体を冷やすために、お湯の中に浸し続ける",
-            alternativaD: "頭の上に置くか、浴槽の脇に置く",
-            alternativaCorreta: "alternativaD"
         },
 
         {
@@ -214,15 +190,6 @@
         },
 
         {
-            pergunta: "地獄蒸しの他に、別府や大分県で有名な「とり天」は、普通の唐揚げと何が違いますか？",
-            alternativaA: "鶏肉の天ぷらで、ポン酢と一緒に食べる",
-            alternativaB: "鶏肉を温泉の蒸気で蒸している",
-            alternativaC: "肉を24時間温泉水に漬け込んでいる",
-            alternativaD: "温泉水が入っている",
-            alternativaCorreta: "alternativaA"
-        },
-
-        {
             pergunta: "別府は日本のどの地方に位置していますか？",
             alternativaA: "北海道",
             alternativaB: "九州",
@@ -232,13 +199,22 @@
         },
 
         {
-            pergunta: "「竹瓦温泉」は別府を象徴する温泉の一つです。唐破風（からはふ）造りの屋根で有名な現在の建物は何年に建てられましたか？",
-            alternativaA: "1938年",
-            alternativaB: "1995年",
-            alternativaC: "1879年",
-            alternativaD: "1830年",
+            pergunta: "龍巻地獄が別府の有名な観光地として知られている理由は何ですか？",
+            alternativaA: "熱湯と蒸気を噴き上げる天然の間欠泉",
+            alternativaB: "コバルトブルーの温泉",
+            alternativaC: "赤い薬用の泥",
+            alternativaD: "冬に凍る湖",
             alternativaCorreta: "alternativaA"
-        }
+        },
+
+        {
+            pergunta: "鬼石坊主地獄の主な特徴は何ですか？",
+            alternativaA: "コバルトブルーの温泉",
+            alternativaB: "泡立つ灰色の熱泥",
+            alternativaC: "天然の間欠泉",
+            alternativaD: "鉄分を含む赤い温泉",
+            alternativaCorreta: "alternativaB"
+        },
 
     ]
 

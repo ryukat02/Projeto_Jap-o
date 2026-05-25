@@ -5,129 +5,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>別府 | ホームページ</title>
+
+    <script src="./js/sessao.js"></script>
+
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/logo_img.png">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/indexJP.css">
 </head>
 
 <body>
+
     <header class="header">
-        <div class="logo">
-            <img src="./assets/img/logo.png">
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="./indexJP.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
+            </div>
+            <div class="header-right">
+                <nav class="header-menu">
+                    <a href="./indexJP.html#sobre">概要</a>
+                    <a href="./indexJP.html#onsens">温泉</a>
+                    <a href="./indexJP.html#jigokumushi">地獄むし</a>
+                    <a href="./indexJP.html#jigokumeguri">地獄めぐり</a>
+                </nav>
+                <div class="header-actions">
+                    <a class="btn-outline" href="./loginJP.html">ログイン</a>
+                    <a class="btn-primary" href="./cadastroJP.html">登録</a>
+
+
+                    <div class="lang-switch">
+                        <a href="./index.html">PT</a> |
+                        <a href="./indexJP.html">JP</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="right">
-            <nav class="menu">
-                <a href="./indexJP.html#sobre">概要</a>
-                <a href="./indexJP.html#cultura">文化</a>
-                <a href="./indexJP.html#onsens">温泉</a>
-                <a href="./indexJP.html#turismo">観光</a>
-            </nav>
-
-            <div class="acoes">
-                <a class="btn-outline" href="./loginJP.html">ログイン</a>
-                <a class="btn-primary" href="./cadastroJP.html">登録</a>
-            </div>
-
-            <div class="lang-switch">
-                <a href="./index.html">PT</a> |
-                <a href="./indexJP.html">JP</a>
-            </div>
         </div>
     </header>
 
     <section class="hero" id="sobre">
+
         <div class="hero-text">
-            <h1>別府の紹介</h1>
-            <p>大分県に位置する別府市は、日本を代表する温泉地の一つとして知られ、豊富で魅力的な温泉により全国的に高い人気を誇っています。約2,800もの源泉を有し、多彩な温泉体験を楽しむことができます。</p>
-            <br>
-            <p>山と海に囲まれた別府は、豊かな自然景観と深い文化的伝統が調和する街です。主な観光名所としては、観賞を目的とした色鮮やかな温泉「地獄めぐり」や、温泉の蒸気を利用して食材を調理する伝統的な「地獄蒸し」などが挙げられます。</p>
+            <h1>別府</h1>
+
+            <p>
+                大分県に位置する別府市は、日本を代表する温泉地の一つとして知られ、豊富で魅力的な温泉により全国的に高い人気を誇っています。約2,800もの源泉を有し、多彩な温泉体験を楽しむことができます。
+            </p>
+            <p>
+                山と海に囲まれた別府は、豊かな自然景観と深い文化的伝統が調和する街です。主な観光名所としては、観賞を目的とした色鮮やかな温泉「地獄めぐり」や、温泉の蒸気を利用して食材を調理する伝統的な「地獄蒸し」などが挙げられます。
+            </p>
+
         </div>
 
         <div class="hero-img">
-            <img src="./assets/img/mainjigokutori.jpeg" class="img-sobre">
-        </div>
-    </section>
-
-    <section class="cards1">
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="waves"></i>
-            </div>
-            <h3>温泉</h3>
-            <p>Fontes termais para relaxamento e saúde</p>
-        </div>
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="map-pin"></i>
-            </div>
-            <h3>別府市</h3>
-            <p>Cidade mais famosa do Japão por seus onsens</p>
-        </div>
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="utensils"></i>
-            </div>
-            <h3>地獄むし</h3>
-            <p>Culinária no vapor das águas termais</p>
-        </div>
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="flower"></i>
-            </div>
-            <h3>日本の文化</h3>
-            <p>Tradições e estilo de vida</p>
-        </div>
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="compass"></i>
-            </div>
-            <h3>観光</h3>
-            <p>Pontos e experiências únicas</p>
+            <img src="./assets/img/beppumain.jpg" class="img-sobre">
         </div>
 
     </section>
 
-    <section class="experiencia" id="cultura">
-        <h2>Uma experiência cultural completa</h2>
-        <p>Beppu oferece muito mais do que turismo: é uma vivência cultural profunda ligada ao bem-estar, tradição e
-            natureza.</p>
 
-        <div class="grid-exp">
+    <section class="section" id="onsens">
 
-            <div class="exp-box">
-                <h3>Tradições</h3>
-                <p>Respeito, disciplina e harmonia fazem parte do dia a dia japonês.</p>
-            </div>
+        <div class="section-text">
+            <h2>温泉</h2>
+            <p>
+                日本は火山地帯に位置しているため、多くの天然温泉（温泉）があります。
+                古くから温泉文化が根付いており、江戸時代には健康や休息のために広く利用されるようになりました。
+                現在では、温泉は自然や伝統、日本料理や旅館文化を楽しめる観光名所としても人気があります。
+            </p>
 
-            <div class="exp-box" id="onsens">
-                <h3>Onsens</h3>
-                <p>Águas termais com propriedades relaxantes e terapêuticas.</p>
-            </div>
+            <br>
 
-            <div class="exp-box" id="turismo">
-                <h3>Turismo em Beppu</h3>
-                <p>Explore paisagens, fontes termais e cultura local.</p>
-            </div>
+            <h3>露天風呂</h3>
 
-            <div class="exp-box">
-                <h3>Jigoku Mushi</h3>
-                <p>Alimentos cozidos naturalmente com vapor vulcânico.</p>
-            </div>
+            <p>
+                露天風呂は屋外にある温泉で、自然や景色を楽しめることが特徴です。
+                開放感があり、落ち着いた雰囲気の中でリラックスできるよう設計されています。
+            </p>
 
+            <br>
+
+            <h3>内湯</h3>
+
+            <p>
+                内湯はホテルや旅館の建物内にある温泉です。
+                露天風呂とは異なり屋内にあり、宿泊客に快適さと便利さを提供しています。
+            </p>
         </div>
+
+        <div class="section-img">
+            <img src="./assets/img/rotenburo.jpg">
+            <img src="./assets/img/uchiyu.webp">
+        </div>
+
     </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
 
+    <section class="section reverse" id="jigokumushi">
+
+        <div class="section-text">
+            <h2>地獄むし</h2>
+
+            <p>
+                地獄蒸しは、温泉の蒸気を利用して食材を調理する別府の伝統的な調理法です。
+                江戸時代から親しまれており、野菜や肉、魚などを油を使わずに調理でき、天然のミネラルとほのかな塩味を楽しむことができます。
+            </p>
+            <br>
+            <br>
+            <p>
+                調理には70℃を超える温泉蒸気を100％利用し、火やガスを必要としません。
+                高温の蒸気によって食材本来の甘みや旨味が引き出され、地獄蒸しは別府ならではの持続可能な食文化として知られています。
+            </p>
+        </div>
+
+        <div class="section-img">
+            <img src="./assets/img/jigokumushi.jpeg">
+            <img src="./assets/img/jigokumushii.jpg">
+        </div>
+
+    </section>
+
+
+    <section class="section" id="jigokumeguri">
+
+        <div class="section-text">
+            <h2>地獄めぐり</h2>
+            <p>
+                別府地獄めぐりでは、「地獄」と呼ばれるさまざまな温泉を見ることができます。
+                全部で7つの地獄があり、それぞれ異なる色や温度、自然の特徴を持っています。
+                また、足湯や温泉の蒸気を使った料理、観光用の見学エリアもあります。
+                主な地獄は以下の通りです。
+            </p>
+            <br>
+            <h3>海地獄</h3>
+            <p>
+                海地獄は、別府地獄めぐりの中で最も有名で大きな温泉です。
+                コバルトブルーの美しいお湯が海のように見え、温度は約98℃に達します。
+            </p>
+
+            <br>
+
+            <h3>鬼石坊主地獄</h3>
+            <p>
+                鬼石坊主地獄は、733年から記録に残る歴史ある温泉です。
+                灰色の熱い泥が泡立つ様子が、坊主頭の僧侶に似ていることで知られています。
+            </p>
+
+            <br>
+
+            <h3>血の池地獄</h3>
+            <p>
+                血の池地獄は、日本最古の天然地獄とされています。
+                鉄分を多く含む粘土によって、温泉の水は鮮やかな赤色をしています。
+                また、この温泉の泥は皮膚病の治療を助ける薬用軟膏にも利用されています。
+            </p>
+
+            <br>
+
+            <h3>龍巻地獄</h3>
+            <p>
+                龍巻地獄は、天然の間欠泉で有名な別府の地獄の一つです。
+                一定の間隔で熱湯と蒸気を高く噴き上げ、約30メートルに達することもあります。
+                噴出の勢いを調整するために、泉の上には石造りの構造物が設置されています。
+            </p>
+        </div>
+
+        <div class="section-img">
+            <img src="./assets/img/mainjigoku.jpeg">
+            <img src="./assets/img/jigoku_bozu.jpeg">
+            <img src="./assets/img/chinoike.jpeg">
+            <img src="./assets/img/tatsumaki.jpg">
+        </div>
+
+    </section>
 </body>
 
 </html>

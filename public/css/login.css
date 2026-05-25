@@ -1,28 +1,56 @@
-.body-cadastro {
-    background-image: url(../assets/img/cadastro_background.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; 
-    min-height: 100vh;
-    margin: 0;
+:root {
+    --purple: #6a1e53;
+    --black: #333;
+    --white: white;
+    --light-pink: #fff7f8;
+    --pink: #e36b7c;
 }
 
-.cadastro {
-    background-size: cover;
-    background-position: center;
-    flex: 1;
+.login-hero {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 85px;
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    padding: 0;
-    min-height: 100vh;
+
+    background-image: url(../assets/img/cadastro_background.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
-.cadastro .container {
+
+.login .container {
     position: relative;
     z-index: 1;
     display: flex;
     justify-content: center;
+}
+
+.login-content {
+    width: 90%;
+    max-width: 1400px;
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 80px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 480px;
+    background: #f5c9cf;
+    border-radius: 20px;
+    box-shadow: #e36b7c;
+    padding: 36px 50px;
+    width: 560px;
+    color: var(--purple);
 }
 
 .card {
@@ -33,36 +61,37 @@
     width: 560px;
     color: var(--purple);
 }
-.card-login    { max-width: 860px; }
-.card-cadastro { max-width: 700px; max-height: 700px;}
-.card h2 {
+
+.login-card h2 {
     text-align: center;
     font-size: 22px;
     margin-bottom: 24px;
     color: var(--purple);
 }
-.formulario {
+
+.login-card form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
 }
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.campo span {
-    font-size: 14px;
+
+.login-card label {
+    font-size: 15px;
+    font-weight: 600;
     color: var(--purple);
-    font-weight: 500;
+    margin-bottom: 8px;
 }
-.campo input {
-    padding: 10px 14px;
+
+.login-card input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 12px;
     border: 1px solid var(--purple);
-    border-radius: 8px;
+    margin-bottom: 22px;
+    margin-top: 6px;
     text-align: center;
     outline: none;
 }
+
 .botao {
     display: block;
     width: fit-content;
@@ -75,8 +104,26 @@
     font-weight: 600;
     font-size: 16px;
 }
-.botao:hover  { opacity: 0.85; }
-.botao:active { transform: scale(0.97); }
+
+.botao:hover {
+    opacity: 0.85;
+}
+
+.botao:active {
+    transform: scale(0.97);
+}
+
+.loading-div {
+    width: 100%;
+    display: none;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
 
 #div_erros_login {
     display: none

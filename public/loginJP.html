@@ -4,74 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beppu | Login</title>
+    <title>別府 | ログイン</title>
 
     <script src="./js/sessao.js"></script>
 
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/logo_img.png">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="logo">
-            <a href="./index.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
+   <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="./indexJP.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
+            </div>
+            <div class="header-right">
+                <nav class="header-menu">
+                    <a href="./indexJP.html#sobre">概要</a>
+                    <a href="./indexJP.html#onsens">温泉</a>
+                    <a href="./indexJP.html#jigokumushi">地獄むし</a>
+                    <a href="./indexJP.html#jigokumeguri">地獄めぐり</a>
+                </nav>
+                <div class="header-actions">
+                    <a class="btn-outline" href="./loginJP.html">ログイン</a>
+                    <a class="btn-primary" href="./cadastroJP.html">登録</a>
+
+
+                    <div class="lang-switch">
+                        <a href="./index.html">PT</a> |
+                        <a href="./indexJP.html">JP</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="right">
-            <nav class="menu">
-                <a href="./indexJP.html#sobre">概要</a>
-                <a href="./indexJP.html#cultura">文化</a>
-                <a href="./indexJP.html#onsens">温泉</a>
-                <a href="./indexJP.html#turismo">観光</a>
-            </nav>
-            
-            <div class="acoes">
-                <a class="btn-outline" href="./loginJP.html">ログイン</a>
-                <a class="btn-primary" href="./cadastroJP.html">登録</a>
-            </div>
-
-            <div class="lang-switch">
-                <a href="./login.html">PT</a> |
-                <a href="./loginJP.html">JP</a>
-            </div>
-
         </div>
     </header>
 
-    <div class="body-cadastro">
-        <div class="login">
-            <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
-                </div>
+    <main class="login-hero">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
             </div>
-            <div class="container">
-                <div class="card card-login">
-                    <h2>お帰りなさい!</h2>
-                    <div class="formulario">
-                        <div class="campo">
-                            <span>メール:</span>
-                            <input id="email_input" type="text" placeholder="メール:">
-                        </div>
-                        <div class="campo">
-                            <span>パスワード:</span>
-                            <input id="senha_input" type="password" placeholder="******">
-                        </div>
-                        <button class="botao" onclick="entrar()">ログイン</button>
-                    </div>
+        </div>
+        <div class="login-content">
+            <div class="login-card">
+                <h2>お帰りなさい!</h2>
+                <form>
+                    <label>メール:</label>
+                    <input id="email_input" type="text" placeholder="メール:">
+                    <label>パスワード:</label>
+                    <input id="senha_input" type="password" placeholder="******">
+                </form>
+
+                    <button class="botao" onclick="entrar()">ログイン</button>
+
 
                     <div id="div_aguardar" class="loading-div">
                         <img src="./assets/gif/circle-loading.gif" id="loading-gif">
                     </div>
-
-                    <div id="div_erros_login"></div>
-                </div>
+                
             </div>
+            <div id="div_erros_login"></div>
         </div>
-    </div>
+
+    </main>
 
 </body>
 

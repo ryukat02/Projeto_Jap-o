@@ -10,132 +10,148 @@
 
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/logo_img.png">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
 
     <header class="header">
-        <div class="logo">
-            <img src="./assets/img/logo.png">
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="./index.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
+            </div>
+            <div class="header-right">
+                <nav class="header-menu">
+                    <a href="./index.html#sobre">Sobre</a>
+                    <a href="./index.html#onsens">Onsens</a>
+                    <a href="./index.html#jigokumushi">Jigoku Mushi</a>
+                    <a href="./index.html#jigokumeguri">Jigoku Meguri</a>
+                </nav>
+                <div class="header-actions">
+                    <a class="btn-outline" href="./login.html">Entrar</a>
+                    <a class="btn-primary" href="./cadastro.html">Cadastrar</a>
+
+
+                    <div class="lang-switch">
+                        <a href="./index.html">PT</a> |
+                        <a href="./indexJP.html">JP</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="right">
-            <nav class="menu">
-                <a href="./index.html#sobre">Sobre</a>
-                <a href="./index.html#cultura">Cultura</a>
-                <a href="./index.html#onsens">Onsens</a>
-                <a href="./index.html#turismo">Turismo</a>
-            </nav>
-
-            <div class="acoes">
-                <a class="btn-outline" href="./login.html">Entrar</a>
-                <a class="btn-primary" href="./cadastro.html">Cadastrar</a>
-            </div>
-
-            <div class="lang-switch">
-                <a href="./index.html">PT</a> |
-                <a href="./indexJP.html">JP</a>
-            </div>
         </div>
     </header>
 
     <section class="hero" id="sobre">
+
         <div class="hero-text">
-            <h1>Sobre Beppu</h1>
-            <p>Localizada na província de Ōita, a cidade de Beppu é um dos destinos termais mais famosos do Japão, reconhecida nacioalmente por seus onsens (fontes de águas termais). Com cerca de 2.800 fontes, Beppu oferece uma grande variedade de experiências.</p>
-            <br>
-            <p>Cercada por montanhas e pelo mar, a cidade combina paisagens naturais únicas com uma forte tradição cultural. Entre seus principais atrativos estão os “Jigoku” (Infernos de Beppu), fontes termais de cores vibrantes voltadas para visitação, e o Jigoku Mushi, uma técnica culinária que utiliza o vapor natural para preparar alimentos.</p>
+            <h1>Beppu</h1>
+
+            <p>Localizada na província de Ōita, a cidade de Beppu é um dos destinos termais mais famosos do Japão,
+                reconhecida nacioalmente por seus onsens (fontes de águas termais). Com cerca de 2.800 fontes, Beppu
+                oferece uma grande variedade de experiências.
+            </p>
+            <p>Cercada por montanhas e pelo mar, a cidade combina paisagens naturais únicas com uma forte tradição
+                cultural. Entre seus principais atrativos estão os “Jigoku” (Infernos de Beppu), fontes termais de cores
+                vibrantes voltadas para visitação, e o Jigoku Mushi, uma técnica culinária que utiliza o vapor natural
+                para preparar alimentos.
+            </p>
+
         </div>
 
         <div class="hero-img">
-            <img src="./assets/img/mainjigokutori.jpeg" class="img-sobre">
+            <img src="./assets/img/beppumain.jpg" class="img-sobre">
         </div>
-    
+
     </section>
 
-    <section class="cards1">
 
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="waves"></i>
-            </div>
-            <h3>Onsens</h3>
-            <p>As águas termais, conhecidas como onsen, são uma das experiências mais tradicionais do Japão. Ricas em minerais como enxofre, ferro e bicarbonato, trazem diversos benefícios: relaxamento, melhora da circulação, alívio de dores musculares 
-            e cuidados com a pele. <br><br>
-            Sua popularização se deu 
+    <section class="section" id="onsens">
+
+        <div class="section-text">
+            <h2>Onsens</h2>
+            <p>
+                O Japão possui milhares de termas naturais (onsen) devido à sua localização em áreas vulcânicas. Desde a
+                antiguidade, os banhos termais fazem parte da cultura japonesa e se popularizaram na era Edo como forma
+                de descanso e cuidado com a saúde. Atualmente, os onsens também são importantes atrações turísticas,
+                oferecendo experiências ligadas à natureza, tradição, hospedagem e culinária japonesa.
+            </p>
+            <br>
+            <h3>Rotenburo</h3>
+            <p>
+                Os rotenburo são banhos termais ao ar livre, conhecidos pelo contato com a natureza e pelas paisagens ao
+                redor. Geralmente possuem aparência mais rústica e são projetados para proporcionar relaxamento,
+                privacidade e sensação de liberdade.
+            </p>
+            <br>
+            <h3>Uchiyu</h3>
+            <p>
+                Os uchiyu são banhos termais localizados dentro de hotéis e pousadas. Diferente dos rotenburo ao ar livre, eles ficam em áreas cobertas e oferecem mais conforto e praticidade aos hóspedes, sem a necessidade de sair do estabelecimento.
             </p>
         </div>
 
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="map-pin"></i>
-            </div>
-            <h3>Beppu</h3>
-            <p>Cidade mais famosa do Japão por seus onsens</p>
-        </div>
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="utensils"></i>
-            </div>
-            <h3>Jigoku Mushi</h3>
-            <p>Culinária no vapor das águas termais</p>
-        </div>
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="flower"></i>
-            </div>
-            <h3>Cultura Japonesa</h3>
-            <p>Tradições e estilo de vida</p>
-        </div>
-
-        <div class="cards">
-            <div class="icon">
-                <i data-lucide="compass"></i>
-            </div>
-            <h3>Turismo</h3>
-            <p>Pontos e experiências únicas</p>
+        <div class="section-img">
+            <img src="./assets/img/rotenburo.jpg">
+            <img src="./assets/img/uchiyu.webp">
         </div>
 
     </section>
 
-    <section class="experiencia" id="cultura">
-        <h2>Uma experiência cultural completa</h2>
-        <p>Beppu oferece muito mais do que turismo: é uma vivência cultural profunda ligada ao bem-estar, tradição e
-            natureza.</p>
 
-        <div class="grid-exp">
+    <section class="section reverse" id="jigokumushi">
 
-            <div class="exp-box">
-                <h3>Tradições</h3>
-                <p>Respeito, disciplina e harmonia fazem parte do dia a dia japonês.</p>
-            </div>
+        <div class="section-text">
+            <h2>Jigoku Mushi</h2>
 
-            <div class="exp-box" id="onsens">
-                <h3>Onsens</h3>
-                <p>Águas termais com propriedades relaxantes e terapêuticas.</p>
-            </div>
-
-            <div class="exp-box" id="turismo">
-                <h3>Turismo em Beppu</h3>
-                <p>Explore paisagens, fontes termais e cultura local.</p>
-            </div>
-
-            <div class="exp-box">
-                <h3>Jigoku Mushi</h3>
-                <p>Alimentos cozidos naturalmente com vapor vulcânico.</p>
-            </div>
-
+            <p>
+                Jigoku-mushi é uma técnica tradicional de Beppu que utiliza o vapor das fontes termais para cozinhar alimentos. Popular desde o período Edo, o método permite preparar vegetais, carnes, peixes e outros pratos sem óleo, preservando os minerais naturais e deixando um leve sabor salgado nos alimentos.
+            </p>
+            <br>
+            <p>
+                O preparo utiliza 100% do vapor termal, que pode ultrapassar 70 °C, dispensando o uso de fogo ou gás. A alta temperatura preserva o sabor e a doçura natural dos ingredientes, tornando o Jigoku-mushi uma experiência culinária sustentável e característica da cultura termal de Beppu.
+            </p>
         </div>
+
+        <div class="section-img">
+            <img src="./assets/img/jigokumushi.jpeg">
+            <img src="./assets/img/jigokumushii.jpg">
+        </div>
+
     </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
 
+    <section class="section" id="jigokumeguri">
+
+        <div class="section-text">
+            <h2>Jigoku Meguri</h2>
+            <p>
+                O Tour pelas Termas de Beppu reúne diferentes fontes termais conhecidas como “jigoku”. Ao todo, são 7 "jigokus" e cada uma possui
+                características próprias, como cores, temperaturas e formações naturais distintas. Além das fontes, o
+                local também conta com banhos de pés, comidas preparadas com vapor termal e áreas para visitação
+                turística. Os principais são:
+            </p>
+            <br>
+            <h3>Umi Jigoku</h3>
+            <p>O Umi Jigoku (“Inferno do Mar”) é a maior e mais famosa fonte termal do Tour dos Infernos de Beppu. Suas águas azul-cobalto lembram o mar e atingem cerca de 98 °C</p>
+            <br>
+            <h3>Oniishi Bozu Jigoku</h3>
+            <p>O Oniishibozu Jigoku é uma fonte termal histórica de Beppu, mencionada desde o ano 733. É conhecida pela lama quente cinzenta que borbulha e lembra a cabeça raspada de monges budistas</p>
+            <br>
+            <h3>Chinoike Jigoku</h3>
+            <p>O Chinoike Jigoku é considerado o inferno natural mais antigo do Japão. Suas águas possuem uma coloração vermelha intensa devido à argila rica em ferro. A lama termal do local também é utilizada em pomadas medicinais para auxiliar no tratamento de doenças de pele.</p>
+            <br>
+            <h3>Tatsumaki Jigoku</h3>
+            <p>O Tatsumaki Jigoku é um dos infernos de Beppu conhecido por seu gêiser natural. Em intervalos regulares, a fonte lança água quente e vapor a grandes alturas, podendo atingir cerca de 30 metros. Para controlar a força da erupção, foi construída uma estrutura de pedra sobre a fonte.</p>
+        </div>
+
+        <div class="section-img">
+            <img src="./assets/img/mainjigoku.jpeg">
+            <img src="./assets/img/jigoku_bozu.jpeg">
+            <img src="./assets/img/chinoike.jpeg">
+            <img src="./assets/img/tatsumaki.jpg">
+        </div>
+
+    </section>
 </body>
 
 </html>

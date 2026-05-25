@@ -7,7 +7,7 @@
 
     <title>Beppu | Dashboard</title>
 
-    <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/logo_img.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/logo_img.png">
 
     <script src="../js/sessao.js"></script>
 
@@ -20,24 +20,26 @@
 
 <body onload="validarSessao(), buscarDados()">
 
-    <header class="header">
-        <div class="logo">
+    <header class="header dashboard-header">
+        <div class="header-content">
+        <div class="header-logo">
             <img src="../assets/img/logo.png">
         </div>
 
-        <div class="right">
-            <nav class="menu">
+        <div class="header-right">
+            <nav class="header-menu">
                 <a href="../quiz.html">Quiz</a>
             </nav>
 
-            <div class="acoes">
+            <div class="header-actions">
                 <a class="btn-outline" href="../home.html">Voltar</a>
-            </div>
 
-            <div class="lang-switch">
-                <a href="./dashboard.html">PT</a> |
-                <a href="./dashboardJP.html">JP</a>
+                <div class="lang-switch">
+                    <a href="./dashboard.html">PT</a> |
+                    <a href="./dashboardJP.html">JP</a>
+                </div>
             </div>
+        </div>
         </div>
     </header>
 
@@ -151,7 +153,7 @@
 
                     y: {
                         beginAtZero: true,
-                        max: 14,
+                        max: 10,
 
                         ticks: {
                             color: "#6a1e53",
@@ -217,7 +219,7 @@
 
                     y: {
                         beginAtZero: true,
-                        max: 14
+                        max: 10
                     }
                 }
             }
