@@ -108,8 +108,6 @@
 
         <div id="botoes" class="quiz-botoes">
             <button onclick="submeter()" id="btnSubmeter">Submeter</button>
-            <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
-            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
         </div>
 
     </div>
@@ -238,8 +236,6 @@
         preencherHTMLcomQuestaoAtual(0)
 
         btnSubmeter.disabled = false
-        btnProx.disabled = true
-        btnTentarNovamente.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -271,11 +267,14 @@
             alert("Não há alternativas escolhidas. Escolha uma opção.")
         } else {
             btnSubmeter.disabled = true
-            btnProx.disabled = false
 
             habilitarAlternativas(false)
 
             checarResposta()
+
+            setTimeout(() => {
+                avancar()
+            }, 900)
         }
     }
 
@@ -291,8 +290,6 @@
 
     function avancar() {
         numeroDaQuestaoAtual++
-
-        btnProx.disabled = true
         btnSubmeter.disabled = false
 
         desmarcarRadioButtons()
@@ -303,10 +300,6 @@
         } else {
             finalizarJogo()
         }
-    }
-
-    function tentarNovamente() {
-        window.location.reload()
     }
 
     function checarResposta() {
@@ -364,20 +357,7 @@
         let classComCoresParaMensagemFinal = null
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
-        if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
-            classComCoresParaMensagemFinal = "text-danger-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
-            classComCoresParaMensagemFinal = "text-warning-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
-            classComCoresParaMensagemFinal = "text-success-with-bg"
-        }
-
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+        textoParaMensagemFinal = "クイズ終了！<br> あなたは問題の " + Math.round((porcentagemFinalDeAcertos) * 100) + "% に正解しました。"
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
@@ -421,11 +401,6 @@
             });
 
         document.getElementById('jogo').classList.add("text-new-gray")
-
-        btnProx.disabled = true
         btnSubmeter.disabled = true
-        // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = false
-
     }
 </script>

@@ -115,7 +115,7 @@
 
         limparFormulario();
       return false;
-    } else if (senhaVar.length <= 8 ||
+    } else if (senhaVar.length < 8 ||
       !(senhaVar.includes('@') || 
         senhaVar.includes('!') ||
         senhaVar.includes('#') ||
@@ -170,7 +170,7 @@
           cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            "登録が正常に完了しました！ログイン画面へリダイレクトしています…";
 
           setTimeout(() => {
             window.location = "loginJP.html";
@@ -179,13 +179,13 @@
           limparFormulario();
           finalizarAguardar();
         } else {
-          alert(`Houve um erro ao realizar cadastro!`);
+          alert(`登録中にエラーが発生しました！`);
           limparFormulario();  
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        alert(`Houve um erro ao realizar cadastro!`)
+        alert(`登録中にエラーが発生しました！`)
         limparFormulario();
       });
 

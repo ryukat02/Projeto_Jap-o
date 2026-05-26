@@ -4,7 +4,7 @@ var router = express.Router();
 router.get("/", function (req, res) {
     res.render("index");
 });
-router.get("/", function (req, res) {
+router.get("/jp", function (req, res) {
     res.render("indexJP");
 });
 

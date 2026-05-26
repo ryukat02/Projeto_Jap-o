@@ -43,24 +43,29 @@ body {
     background: linear-gradient(180deg, #f3e6eb, #e9d6de);
     font-family: 'Segoe UI', sans-serif;
     padding-top: 100px;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .quiz-wrapper {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
 
 .quiz-start {
     background: #ffffff;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     text-align: center;
     max-width: 500px;
     width: 100%;
-    margin-bottom: 0;
+    margin: 0 auto;
+
 }
 
 .quiz-start h1 {
@@ -117,7 +122,7 @@ body {
 #spanQuestaoExibida {
     font-size: 15px;
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .quiz-score {
@@ -224,24 +229,6 @@ body {
     opacity: 0.90;
 }
 
-#btnProx {
-    background: #f5a7ba;
-    color: white;
-}
-
-#btnProx:hover {
-    opacity: 0.90;
-}
-
-#btnTentarNovamente {
-    background: #e36b7c;
-    color: white;
-}
-
-#btnTentarNovamente:hover {
-    opacity: 0.90;
-}
-
 .text-success-with-bg {
     background: #2c9e5cde;
     color: white;
@@ -251,3 +238,4 @@ body {
     background: #c21f27e1;
     color: white;
 }
+

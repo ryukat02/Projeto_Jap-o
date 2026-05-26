@@ -114,7 +114,7 @@
           limparFormulario();
 
       return false;
-    } else if (senhaVar.length <= 8 ||
+    } else if (senhaVar.length < 8 ||
       !(senhaVar.includes('@') ||
         senhaVar.includes('!') ||
         senhaVar.includes('#') ||
@@ -149,7 +149,6 @@
       confirmacao_senha_input.value = '';
     }
 
-    // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
