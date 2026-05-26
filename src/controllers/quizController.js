@@ -8,53 +8,66 @@ function salvar(req, res) {
     var porcentagem = req.body.porcentagemServer;
     var fkUsuario = req.body.fkUsuarioServer;
 
-    var nivel = "";
-    var titulo = "";
-
-    if (porcentagem >= 90) {
-
-        nivel = "上級 • Avançado";
-        titulo = "温泉の守護者 • Guardião dos Onsens";
-
-    } else if (porcentagem >= 60) {
-
-        nivel = "中級 • Intermediário";
-        titulo = "別府の探検者 • Explorador de Beppu";
-
-    } else {
-
-        nivel = "初級 • Iniciante";
-        titulo = "温泉好きの初心者 • Curioso de Onsens";
-    }
-
     quizModel.salvar(
         pontuacao,
         acertos,
         erros,
         porcentagem,
-        fkUsuario,
-        nivel,
-        titulo
+        fkUsuario
     )
-        .then(function (resultado) {
+
+        .then(function () {
+
+            return quizModel.buscarMediaUsuario(fkUsuario);
+
+        })
+
+        .then(function (resultadoMedia) {
+
+            var media = Number(resultadoMedia[0].media);
+
+            var nivel = "";
+            var titulo = "";
+
+            if (media >= 90) {
+
+                nivel = "上級 • Avançado";
+                titulo = "温泉の守護者 • Guardião dos Onsens";
+
+            } else if (media >= 60) {
+
+                nivel = "中級 • Intermediário";
+                titulo = "別府の探検者 • Explorador de Beppu";
+
+            } else {
+
+                nivel = "初級 • Iniciante";
+                titulo = "温泉好きの初心者 • Curioso de Onsens";
+
+            }
+
             return quizModel.atualizarPerfil(
                 nivel,
                 titulo,
                 fkUsuario
             );
-        })   
-        .then(function(){
+
+        })
+
+        .then(function () {
+
             res.json({
                 mensagem: "Quiz salvo e perfil atualizado!"
             });
+
         })
+
         .catch(function (erro) {
 
             console.log(erro);
             res.status(500).json(erro.sqlMessage);
 
         });
-
 }
 function dashboard(req, res) {
 
@@ -62,6 +75,8 @@ function dashboard(req, res) {
 
     quizModel.buscarDadosDashboard(fkUsuario)
         .then(function (resultado) {
+
+            console.log(resultado);
 
             quizModel.listarPontuacoes(fkUsuario)
                 .then(function (resultadoPontuacoes) {

@@ -215,14 +215,12 @@
 
     ]
 
-    // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
     let tentativaIncorreta = 0
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
-    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
@@ -241,7 +239,6 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-        // btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
 
@@ -251,7 +248,7 @@
         numeroDaQuestaoAtual = index
         console.log("questaoAtual")
         console.log(questaoAtual)
-        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1;
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
@@ -260,7 +257,7 @@
     }
 
     function submeter() {
-        const options = document.getElementsByName("option"); // recupera alternativas no html
+        const options = document.getElementsByName("option");
 
         let hasChecked = false
         for (let i = 0; i < options.length; i++) {
@@ -309,7 +306,6 @@
     }
 
     function tentarNovamente() {
-        // atualiza a página
         window.location.reload()
     }
 
@@ -322,7 +318,6 @@
         let alternativaCorretaId = null
         let alternativaSelecionada = null
 
-        // descobre qual é a correta e qual foi escolhida
         options.forEach((option) => {
             if (option.value === respostaCorreta) {
                 alternativaCorretaId = option.labels[0].id
@@ -333,7 +328,6 @@
             }
         })
 
-        // verifica resposta
         if (alternativaSelecionada.value === respostaCorreta) {
             document.getElementById(alternativaCorretaId).classList.add("text-success-with-bg")
             pontuacaoFinal++

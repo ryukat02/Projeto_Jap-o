@@ -12,31 +12,31 @@
 
 <body>
   <header class="header">
-        <div class="header-content">
-            <div class="header-logo">
-                <a href="./index.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
-            </div>
-            <div class="header-right">
-                <nav class="header-menu">
-                    <a href="./index.html#sobre">Sobre</a>
-                    <a href="./index.html#onsens">Onsens</a>
-                    <a href="./index.html#jigokumushi">Jigoku Mushi</a>
-                    <a href="./index.html#jigokumeguri">Jigoku Meguri</a>
-                </nav>
-                <div class="header-actions">
-                    <a class="btn-outline" href="./login.html">Entrar</a>
-                    <a class="btn-primary" href="./cadastro.html">Cadastrar</a>
+    <div class="header-content">
+      <div class="header-logo">
+        <a href="./index.html"><img src="./assets/img/logo.png" href="/public/index.html"></a>
+      </div>
+      <div class="header-right">
+        <nav class="header-menu">
+          <a href="./index.html#sobre">Sobre</a>
+          <a href="./index.html#onsens">Onsens</a>
+          <a href="./index.html#jigokumushi">Jigoku Mushi</a>
+          <a href="./index.html#jigokumeguri">Jigoku Meguri</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn-outline" href="./login.html">Entrar</a>
+          <a class="btn-primary" href="./cadastro.html">Cadastrar</a>
 
 
-                    <div class="lang-switch">
-                        <a href="./cadastro.html">PT</a> |
-                        <a href="./cadastroJP.html">JP</a>
-                    </div>
-                </div>
-            </div>
+          <div class="lang-switch">
+            <a href="./cadastro.html">PT</a> |
+            <a href="./cadastroJP.html">JP</a>
+          </div>
         </div>
-        </div>
-    </header>
+      </div>
+    </div>
+    </div>
+  </header>
 
   <div class="body-cadastro">
     <div class="cadastro">
@@ -87,7 +87,6 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
@@ -98,22 +97,22 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "Preencha corretamente todos os campos!";
+          limparFormulario();
 
-      finalizarAguardar();
       return false;
     } else if (nomeVar.length < 1) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "O campo nome deve conter mais de 1 caractere";
+          limparFormulario();
 
-      finalizarAguardar();
       return false;
     } else if (!(emailVar.includes('@') || emailVar.includes('.'))) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "O E-mail deve conter '@' e '.'";
+          limparFormulario();
 
-      finalizarAguardar();
       return false;
     } else if (senhaVar.length <= 8 ||
       !(senhaVar.includes('@') ||
@@ -126,19 +125,29 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "A senha deve conter pelo menos 8 caracteres e pelo menos 1 caractere especial!";
-      finalizarAguardar();
+          limparFormulario();
+
       return false;
     } else if (senhaVar != confirmacaoSenhaVar) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "As senhas devem ser iguais";
+          limparFormulario();
 
-      finalizarAguardar();
+
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
+          limparFormulario();
+
     }
 
+    function limparFormulario() {
+      nome_input.value = '';
+      email_input.value = '';
+      senha_input.value = '';
+      confirmacao_senha_input.value = '';
+    }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -168,17 +177,16 @@
           }, "2000");
 
           limparFormulario();
-          finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          alert(`Houve um erro ao realizar cadastro!`);
+          limparFormulario();
+          
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-          "Houve um erro ao tentar realizar o cadastro";
-        finalizarAguardar();
+        alert(`Houve um erro ao realizar cadastro!`)
+        limparFormulario();
       });
 
     return false;

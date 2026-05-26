@@ -17,9 +17,7 @@ erros INT,
 porcentagemAcertos DECIMAL (5,2),
 dtHora DATETIME DEFAULT CURRENT_TIMESTAMP,
 fkUsuario INT,
-CONSTRAINT chk_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
-nivel VARCHAR(45),
-titulo VARCHAR(45)
+CONSTRAINT chk_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario)
 ); 
 
 CREATE TABLE perfil (

@@ -1,4 +1,3 @@
-const bus = require("nodemon/lib/utils/bus");
 var database = require("../database/config");
 
 function salvar(
@@ -6,24 +5,20 @@ function salvar(
     acertos,
     erros,
     porcentagem,
-    fkUsuario,
-    nivel,
-    titulo
+    fkUsuario
 ) {
 
     var instrucaoSql = `
 
         INSERT INTO quiz
-        (pontuacao, acertos, erros, porcentagemAcertos, fkUsuario, nivel, titulo)
+        (pontuacao, acertos, erros, porcentagemAcertos, fkUsuario)
 
         VALUES (
             ${pontuacao},
             ${acertos},
             ${erros},
             ${porcentagem},
-            ${fkUsuario},
-            '${nivel}',
-            '${titulo}'
+            ${fkUsuario}
         );
 
     `;
@@ -37,15 +32,31 @@ function buscarDadosDashboard(fkUsuario) {
     var instrucaoSql = `
     
         SELECT
-            COUNT(idQuiz) AS totalQuiz,
-            MAX(pontuacao) AS maiorPontuacao,
-            AVG(porcentagemAcertos) AS media,
-            MAX(nivel) AS nivel,
-            MAX(titulo) AS titulo
 
-        FROM quiz
+            (
+                SELECT COUNT(*)
+                FROM quiz
+                WHERE fkUsuario = ${fkUsuario}
+            ) AS totalQuiz,
 
-        WHERE fkUsuario = ${fkUsuario};
+            (
+                SELECT MAX(pontuacao)
+                FROM quiz
+                WHERE fkUsuario = ${fkUsuario}
+            ) AS maiorPontuacao,
+
+            (
+                SELECT AVG(porcentagemAcertos)
+                FROM quiz
+                WHERE fkUsuario = ${fkUsuario}
+            ) AS media,
+
+            perfil.nivel,
+            perfil.titulo
+
+        FROM perfil
+
+        WHERE perfil.fkUsuario = ${fkUsuario};
 
     `;
 
@@ -85,6 +96,19 @@ function listarPontuacoes(fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarMediaUsuario(fkUsuario) {
+
+    var instrucaoSql = `
+
+        SELECT AVG(porcentagemAcertos) AS media
+        FROM quiz
+        WHERE fkUsuario = ${fkUsuario};
+
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
 function atualizarPerfil(nivel, titulo, fkUsuario) {
 
     var instrucaoSql = `
@@ -100,11 +124,11 @@ function atualizarPerfil(nivel, titulo, fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
-
 module.exports = {
     salvar,
     atualizarPerfil,
     buscarDadosDashboard,
     listarPontuacoes,
-    buscarRanking
+    buscarRanking,
+    buscarMediaUsuario
 };
