@@ -357,7 +357,7 @@
         let classComCoresParaMensagemFinal = null
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
-        textoParaMensagemFinal = "クイズ終了！<br> あなたは問題の " + Math.round((porcentagemFinalDeAcertos) * 100) + "% に正解しました。"
+        textoParaMensagemFinal = "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
