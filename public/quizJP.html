@@ -375,37 +375,28 @@
         let porcentagem = ((pontuacaoFinal / quantidadeDeQuestoes) * 100).toFixed();
 
         fetch("/quiz/salvar", {
-
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
-
                 pontuacaoServer: pontuacaoFinal,
                 acertosServer: certas,
                 errosServer: erradas,
                 porcentagemServer: porcentagem,
                 fkUsuarioServer: Number(sessionStorage.ID_USUARIO)
-
             })
 
         })
             .then(function (resposta) {
-
                 console.log("Resultado salvo!");
-
                 setTimeout(() => {
                     window.location = "./dashboard/dashboardJP.html";
                 }, 2000);
 
             })
             .catch(function (erro) {
-
                 console.log("Erro ao salvar:", erro);
-
             });
 
         document.getElementById('jogo').classList.add("text-new-gray")
