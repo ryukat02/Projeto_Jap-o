@@ -26,11 +26,24 @@ function aguardar() {
 function finalizarAguardar(texto) {
     var divAguardar = document.getElementById("div_aguardar");
     divAguardar.style.display = "none";
+}
 
+function mostrarErroLogin() {
     var divErrosLogin = document.getElementById("div_erros_login");
-    if (texto) {
-        divErrosLogin.style.display = "flex";
-        divErrosLogin.innerHTML = texto;
+    
+
+    if(document.documentElement.lang == "ja"){
+
+        div_erros_login.innerHTML = 
+        "メールアドレスまたはパスワードが違います";
+
+    } else {
+
+        div_erros_login.innerHTML = 
+        "Email e/ou senha inválido(s)";
+
     }
+
+    div_erros_login.style.display = "block";
 }
 

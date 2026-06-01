@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -55,6 +55,7 @@
                     <input id="email_input" type="text" placeholder="メール:">
                     <label>パスワード:</label>
                     <input id="senha_input" type="password" placeholder="******">
+                    <div id="div_erros_login"></div>
                 </form>
 
                     <button class="botao" onclick="entrar()">ログイン</button>
@@ -65,7 +66,7 @@
                     </div>
                 
             </div>
-            <div id="div_erros_login"></div>
+            
         </div>
 
     </main>
@@ -109,6 +110,7 @@
 
             if (resposta.ok) {
                 console.log(resposta);
+                div_erros_login.style.display = "none";
 
                 resposta.json().then(json => {
                     console.log(json);
@@ -129,6 +131,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
+                    mostrarErroLogin();
                     finalizarAguardar(texto);
                 });
             }

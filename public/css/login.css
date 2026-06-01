@@ -125,8 +125,13 @@
     width: 50px;
 }
 
-#div_erros_login {
-    display: none
+#div_erros_login{
+    display: none;
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 15px;
+    color: #5b0b3b;
+    font-size: 18px;
 }
 
 .alerta_erro {
