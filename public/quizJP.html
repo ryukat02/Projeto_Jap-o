@@ -295,7 +295,7 @@
 
     function avancar() {
         numeroDaQuestaoAtual++
-        
+
         btnSubmeter.disabled = false
 
         desmarcarRadioButtons()
@@ -317,18 +317,18 @@
         let alternativaCorretaId = null
         let alternativaSelecionada = null
 
-        // descobre qual é a correta e qual foi escolhida
-        options.forEach((option) => {
+        for (let i = 0; i < options.length; i++) {
+            let option = options[i];
+
             if (option.value === respostaCorreta) {
-                alternativaCorretaId = option.labels[0].id
+                alternativaCorretaId = option.labels[0].id;
             }
 
             if (option.checked) {
-                alternativaSelecionada = option
+                alternativaSelecionada = option;
             }
-        })
+        }
 
-        // verifica resposta
         if (alternativaSelecionada.value === respostaCorreta) {
             document.getElementById(alternativaCorretaId).classList.add("text-success-with-bg")
             pontuacaoFinal++
@@ -362,17 +362,12 @@
 
     function finalizarJogo() {
         let textoParaMensagemFinal = null
-        let classComCoresParaMensagemFinal = null
-        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+        const porcentagem = (pontuacaoFinal / quantidadeDeQuestoes) * 100;
 
-        textoParaMensagemFinal += "クイズ終了！<br> あなたは問題の " + Math.round((porcentagemFinalDeAcertos) * 100) + "% に正解しました。"
-
+        textoParaMensagemFinal += "クイズ終了！<br> あなたは問題の " + Math.round(porcentagem) + "% に正解しました。"
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
-
-        let porcentagem = ((pontuacaoFinal / quantidadeDeQuestoes) * 100).toFixed();
 
         fetch("/quiz/salvar", {
             method: "POST",
@@ -383,7 +378,7 @@
                 pontuacaoServer: pontuacaoFinal,
                 acertosServer: certas,
                 errosServer: erradas,
-                porcentagemServer: porcentagem,
+                porcentagemServer: porcentagem.toFixed(2),
                 fkUsuarioServer: Number(sessionStorage.ID_USUARIO)
             })
 
@@ -399,8 +394,6 @@
                 console.log("Erro ao salvar:", erro);
             });
 
-        document.getElementById('jogo').classList.add("text-new-gray")
-        
         btnSubmeter.disabled = true
     }
 </script>

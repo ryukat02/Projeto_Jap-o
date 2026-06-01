@@ -311,15 +311,17 @@
         let alternativaCorretaId = null
         let alternativaSelecionada = null
 
-        options.forEach((option) => {
+        for (let i = 0; i < options.length; i++) {
+            let option = options[i];
+
             if (option.value === respostaCorreta) {
-                alternativaCorretaId = option.labels[0].id
+                alternativaCorretaId = option.labels[0].id;
             }
 
             if (option.checked) {
-                alternativaSelecionada = option
+                alternativaSelecionada = option;
             }
-        })
+        }
 
         if (alternativaSelecionada.value === respostaCorreta) {
             document.getElementById(alternativaCorretaId).classList.add("text-success-with-bg")
@@ -353,18 +355,13 @@
     }
 
     function finalizarJogo() {
-        let textoParaMensagemFinal = null
-        let classComCoresParaMensagemFinal = null
-        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+        let textoParaMensagemFinal = null;
+        const porcentagem = (pontuacaoFinal / quantidadeDeQuestoes) * 100;
 
-        textoParaMensagemFinal = "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
-
+        textoParaMensagemFinal = "<br> Você acertou " + Math.round(porcentagem) + "% das questões."
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
-
-        let porcentagem = ((pontuacaoFinal / quantidadeDeQuestoes) * 100).toFixed(2);
 
         fetch("/quiz/salvar", {
             method: "POST",
@@ -375,7 +372,7 @@
                 pontuacaoServer: pontuacaoFinal,
                 acertosServer: certas,
                 errosServer: erradas,
-                porcentagemServer: porcentagem,
+                porcentagemServer: porcentagem.toFixed(2),
                 fkUsuarioServer: Number(sessionStorage.ID_USUARIO)
             })
 
@@ -389,8 +386,6 @@
             .catch(function (erro) {
                 console.log("Erro ao salvar:", erro);
             });
-
-        document.getElementById('jogo').classList.add("text-new-gray")
         btnSubmeter.disabled = true
     }
 </script>
